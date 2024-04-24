@@ -53,7 +53,7 @@ public class RetryProperties {
 	/**
 	 * Use a random exponential backoff policy.
 	 */
-	boolean useRandomPolicy = false;
+	boolean useRandomPolicy;
 
 	public long getInitialInterval() {
 		return this.initialInterval;

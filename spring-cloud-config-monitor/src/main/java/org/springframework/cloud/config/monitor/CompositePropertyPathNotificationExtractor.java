@@ -35,7 +35,7 @@ import org.springframework.util.MultiValueMap;
  */
 public class CompositePropertyPathNotificationExtractor implements PropertyPathNotificationExtractor {
 
-	private List<PropertyPathNotificationExtractor> extractors;
+	private final List<PropertyPathNotificationExtractor> extractors;
 
 	public CompositePropertyPathNotificationExtractor(List<PropertyPathNotificationExtractor> extractors) {
 		this.extractors = new ArrayList<>();

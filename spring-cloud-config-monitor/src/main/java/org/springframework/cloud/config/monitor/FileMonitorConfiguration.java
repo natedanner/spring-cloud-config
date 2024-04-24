@@ -223,7 +223,7 @@ public class FileMonitorConfiguration implements SmartLifecycle, ResourceLoaderA
 	}
 
 	private Set<File> filesFromEvents() {
-		Set<File> files = new LinkedHashSet<File>();
+		Set<File> files = new LinkedHashSet<>();
 		if (this.watcher == null) {
 			return files;
 		}
@@ -274,7 +274,7 @@ public class FileMonitorConfiguration implements SmartLifecycle, ResourceLoaderA
 	}
 
 	private Set<File> walkDirectory(Path directory) {
-		final Set<File> walkedFiles = new LinkedHashSet<File>();
+		final Set<File> walkedFiles = new LinkedHashSet<>();
 		try {
 			registerWatch(directory);
 			Files.walkFileTree(directory, new SimpleFileVisitor<Path>() {

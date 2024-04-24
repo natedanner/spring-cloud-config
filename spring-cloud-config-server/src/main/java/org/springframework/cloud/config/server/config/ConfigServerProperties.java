@@ -61,7 +61,7 @@ public class ConfigServerProperties {
 	/**
 	 * Extra map for a property source to be sent to all clients unconditionally.
 	 */
-	private Map<String, String> overrides = new LinkedHashMap<String, String>();
+	private Map<String, String> overrides = new LinkedHashMap<>();
 
 	/**
 	 * Flag to indicate that YAML documents that are text or collections (not a map)
@@ -101,7 +101,7 @@ public class ConfigServerProperties {
 	 * property is set to true then we will reverse ther order like it used to be prior to
 	 * Hoxton.SR11.
 	 */
-	private boolean reverseLocationOrder = false;
+	private boolean reverseLocationOrder;
 
 	/**
 	 * Decryption configuration for when server handles encrypted properties before
@@ -226,7 +226,7 @@ public class ConfigServerProperties {
 		 * Enable decryption of environment properties served by plain text endpoint
 		 * {@link org.springframework.cloud.config.server.resource.ResourceController}.
 		 */
-		private boolean plainTextEncrypt = false;
+		private boolean plainTextEncrypt;
 
 		public boolean isEnabled() {
 			return this.enabled;

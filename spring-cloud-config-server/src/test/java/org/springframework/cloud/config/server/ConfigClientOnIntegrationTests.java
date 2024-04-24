@@ -57,7 +57,7 @@ import static org.mockito.BDDMockito.given;
 @DirtiesContext
 public class ConfigClientOnIntegrationTests {
 
-	private static String localRepo = null;
+	private static String localRepo;
 
 	@LocalServerPort
 	private int port;

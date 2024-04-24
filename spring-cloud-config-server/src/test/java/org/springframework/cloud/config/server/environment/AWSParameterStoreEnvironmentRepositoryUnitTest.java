@@ -57,19 +57,19 @@ import static org.springframework.cloud.config.server.environment.AwsParameterSt
  */
 public class AWSParameterStoreEnvironmentRepositoryUnitTest {
 
-	private static final Map<String, String> SHARED_PROPERTIES = new HashMap<String, String>() {
-		{
-			put("logging.level.root", "warn");
-			put("spring.cache.redis.time-to-live", "0");
-		}
-	};
+	private static final Map<String, String> SHARED_PROPERTIES;
+	static {
+		SHARED_PROPERTIES = new HashMap<>();
+		SHARED_PROPERTIES.put("logging.level.root", "warn");
+		SHARED_PROPERTIES.put("spring.cache.redis.time-to-live", "0");
+	}
 
-	private static final Map<String, String> SHARED_DEFAULT_PROPERTIES = new HashMap<String, String>() {
-		{
-			put("logging.level.root", "error");
-			put("spring.cache.redis.time-to-live", "1000");
-		}
-	};
+	private static final Map<String, String> SHARED_DEFAULT_PROPERTIES;
+	static {
+		SHARED_DEFAULT_PROPERTIES = new HashMap<>();
+		SHARED_DEFAULT_PROPERTIES.put("logging.level.root", "error");
+		SHARED_DEFAULT_PROPERTIES.put("spring.cache.redis.time-to-live", "1000");
+	}
 
 	private final SsmClient ssmClient = mock(SsmClient.class, "aws-ssm-client-mock");
 

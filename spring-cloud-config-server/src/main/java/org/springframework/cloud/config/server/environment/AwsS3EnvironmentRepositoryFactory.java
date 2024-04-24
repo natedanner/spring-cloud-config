@@ -26,7 +26,7 @@ import static org.springframework.cloud.config.server.environment.AwsClientBuild
 public class AwsS3EnvironmentRepositoryFactory
 		implements EnvironmentRepositoryFactory<AwsS3EnvironmentRepository, AwsS3EnvironmentProperties> {
 
-	final private ConfigServerProperties server;
+	private final ConfigServerProperties server;
 
 	public AwsS3EnvironmentRepositoryFactory(ConfigServerProperties server) {
 		this.server = server;

@@ -64,7 +64,7 @@ class EnvironmentPrefixHelper {
 	 */
 	public Map<String, String> getEncryptorKeys(String name, String profiles, String text) {
 
-		Map<String, String> keys = new LinkedHashMap<String, String>();
+		Map<String, String> keys = new LinkedHashMap<>();
 
 		text = removeEnvironmentPrefix(text);
 		keys.put(NAME, name);

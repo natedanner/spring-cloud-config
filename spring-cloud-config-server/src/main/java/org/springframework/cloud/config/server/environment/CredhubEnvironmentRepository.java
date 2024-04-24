@@ -37,7 +37,7 @@ import static java.util.stream.Collectors.toMap;
  */
 public class CredhubEnvironmentRepository implements EnvironmentRepository, Ordered {
 
-	private CredHubOperations credHubOperations;
+	private final CredHubOperations credHubOperations;
 
 	private static final String DEFAULT_PROFILE = "default";
 

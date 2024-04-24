@@ -34,7 +34,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class PropertyPathEndpointTests {
 
-	private PropertyPathEndpoint endpoint = new PropertyPathEndpoint(
+	private final PropertyPathEndpoint endpoint = new PropertyPathEndpoint(
 			new CompositePropertyPathNotificationExtractor(Collections.emptyList()), "abc1");
 
 	@BeforeEach

@@ -50,9 +50,9 @@ public class FileMonitorConfigurationTest {
 
 	private static final String SAMPLE_FILE_URL = "file:///test";
 
-	private FileMonitorConfiguration fileMonitorConfiguration = new FileMonitorConfiguration();
+	private final FileMonitorConfiguration fileMonitorConfiguration = new FileMonitorConfiguration();
 
-	private List<AbstractScmEnvironmentRepository> repositories = new ArrayList<>();
+	private final List<AbstractScmEnvironmentRepository> repositories = new ArrayList<>();
 
 	@BeforeEach
 	public void setup() {

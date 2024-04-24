@@ -31,13 +31,13 @@ import org.springframework.core.env.MapPropertySource;
  */
 public class EnvironmentRepositoryPropertySourceLocator implements PropertySourceLocator {
 
-	private EnvironmentRepository repository;
+	private final EnvironmentRepository repository;
 
-	private String name;
+	private final String name;
 
-	private String profiles;
+	private final String profiles;
 
-	private String label;
+	private final String label;
 
 	public EnvironmentRepositoryPropertySourceLocator(EnvironmentRepository repository, String name, String profiles,
 			String label) {

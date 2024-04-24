@@ -50,7 +50,7 @@ import static org.mockito.Mockito.when;
  */
 public class MultipleJGitEnvironmentRepositoryTests {
 
-	private StandardEnvironment environment = new StandardEnvironment();
+	private final StandardEnvironment environment = new StandardEnvironment();
 
 	private MultipleJGitEnvironmentRepository repository;
 

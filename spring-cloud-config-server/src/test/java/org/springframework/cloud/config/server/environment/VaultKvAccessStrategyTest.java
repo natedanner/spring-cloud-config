@@ -33,7 +33,7 @@ public class VaultKvAccessStrategyTest {
 
 	private static final String FOO_BAR = "{\"foo\":\"bar\"}";
 
-	private ObjectMapper objectMapper = new ObjectMapper();
+	private final ObjectMapper objectMapper = new ObjectMapper();
 
 	private static VaultKvAccessStrategySupport getStrategy(int version) {
 		return (VaultKvAccessStrategySupport) VaultKvAccessStrategyFactory.forVersion(null, "foo", version, "");

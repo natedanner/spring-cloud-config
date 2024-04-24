@@ -25,7 +25,7 @@ public final class ConfigClientStateHolder {
 		throw new IllegalStateException("Can't instantiate a utility class");
 	}
 
-	private static ThreadLocal<String> state = new ThreadLocal<>();
+	private static final ThreadLocal<String> state = new ThreadLocal<>();
 
 	public static void resetState() {
 		state.remove();

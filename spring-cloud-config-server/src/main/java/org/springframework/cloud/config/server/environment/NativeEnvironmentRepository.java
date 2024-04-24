@@ -63,7 +63,7 @@ public class NativeEnvironmentRepository implements EnvironmentRepository, Searc
 
 	static final Pattern RESOURCE_PATTERN = Pattern.compile("Config resource '(.*?)' via location '(.*)'");
 
-	private static Log logger = LogFactory.getLog(NativeEnvironmentRepository.class);
+	private static final Log logger = LogFactory.getLog(NativeEnvironmentRepository.class);
 
 	private String defaultLabel;
 
@@ -88,7 +88,7 @@ public class NativeEnvironmentRepository implements EnvironmentRepository, Searc
 	 */
 	private String version;
 
-	private ConfigurableEnvironment environment;
+	private final ConfigurableEnvironment environment;
 
 	private int order;
 
@@ -172,7 +172,7 @@ public class NativeEnvironmentRepository implements EnvironmentRepository, Searc
 		if (this.searchLocations == null || this.searchLocations.length == 0) {
 			locations = DEFAULT_LOCATIONS;
 		}
-		Collection<String> output = new LinkedHashSet<String>();
+		Collection<String> output = new LinkedHashSet<>();
 
 		if (label == null) {
 			label = this.defaultLabel;
@@ -225,7 +225,7 @@ public class NativeEnvironmentRepository implements EnvironmentRepository, Searc
 		Map<String, Object> map = new HashMap<>();
 		map.put("spring.profiles.active", profile);
 		String config = application;
-		if (!config.equals("application")) {
+		if (!"application".equals(config)) {
 			config = "application," + config;
 		}
 		map.put("spring.config.name", config);

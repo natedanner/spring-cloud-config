@@ -38,9 +38,9 @@ public class CipherResourceJsonEncryptorTests {
 
 	private final String key = "foo";
 
-	private TextEncryptor textEncryptor = new EncryptorFactory(salt).create(key);
+	private final TextEncryptor textEncryptor = new EncryptorFactory(salt).create(key);
 
-	private CipherResourceJsonEncryptor encryptor = new CipherResourceJsonEncryptor(new TextEncryptorLocator() {
+	private final CipherResourceJsonEncryptor encryptor = new CipherResourceJsonEncryptor(new TextEncryptorLocator() {
 		@Override
 		public TextEncryptor locate(Map<String, String> keys) {
 			return CipherResourceJsonEncryptorTests.this.textEncryptor;

@@ -50,12 +50,12 @@ public final class GoogleSecretManagerAccessStrategyFactory {
 	public static GoogleSecretManagerAccessStrategy forVersion(RestTemplate rest, GoogleConfigProvider configProvider,
 			GoogleSecretManagerEnvironmentProperties properties, SecretManagerServiceClient client) {
 
-		switch (properties.getVersion()) {
-			case 1:
-				return new GoogleSecretManagerV1AccessStrategy(rest, configProvider, client);
-			default:
-				throw new IllegalArgumentException(
-						"No support for given Google Secret manager backend version " + properties.getVersion());
+		if (properties.getVersion() == 1) {
+			return new GoogleSecretManagerV1AccessStrategy(rest, configProvider, client);
+		}
+		else {
+			throw new IllegalArgumentException(
+					"No support for given Google Secret manager backend version " + properties.getVersion());
 		}
 	}
 

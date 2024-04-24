@@ -163,10 +163,10 @@ public abstract class PathUtils {
 				if (i == 0 || (i == 1 && slash)) {
 					return path;
 				}
-				return (slash ? "/" + path.substring(i) : path.substring(i));
+				return slash ? "/" + path.substring(i) : path.substring(i);
 			}
 		}
-		return (slash ? "/" : "");
+		return slash ? "/" : "";
 	}
 
 	/**
@@ -193,7 +193,7 @@ public abstract class PathUtils {
 			return true;
 		}
 		if (path.contains(":/")) {
-			String relativePath = (path.charAt(0) == '/' ? path.substring(1) : path);
+			String relativePath = path.charAt(0) == '/' ? path.substring(1) : path;
 			if (ResourceUtils.isUrl(relativePath) || relativePath.startsWith("url:")) {
 				if (logger.isWarnEnabled()) {
 					logger.warn("Path represents URL or has \"url:\" prefix: [" + path + "]");
@@ -267,11 +267,11 @@ public abstract class PathUtils {
 		if (locationPath.equals(resourcePath)) {
 			return true;
 		}
-		locationPath = (locationPath.endsWith("/") || locationPath.isEmpty() ? locationPath : locationPath + "/");
+		locationPath = locationPath.endsWith("/") || locationPath.isEmpty() ? locationPath : locationPath + "/";
 		String encodedLocationPath = locationPath.endsWith("/")
 				? locationPath.substring(0, locationPath.length() - 1) + URLEncoder.encode("/", "UTF-8") : locationPath;
-		return ((resourcePath.startsWith(locationPath) || resourcePath.startsWith(encodedLocationPath))
-				&& !isInvalidEncodedPath(resourcePath));
+		return (resourcePath.startsWith(locationPath) || resourcePath.startsWith(encodedLocationPath))
+				&& !isInvalidEncodedPath(resourcePath);
 	}
 
 }

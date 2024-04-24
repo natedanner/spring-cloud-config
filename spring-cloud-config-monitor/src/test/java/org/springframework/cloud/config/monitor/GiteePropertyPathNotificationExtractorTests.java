@@ -32,9 +32,9 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class GiteePropertyPathNotificationExtractorTests {
 
-	private GiteePropertyPathNotificationExtractor extractor = new GiteePropertyPathNotificationExtractor();
+	private final GiteePropertyPathNotificationExtractor extractor = new GiteePropertyPathNotificationExtractor();
 
-	private HttpHeaders headers = new HttpHeaders();
+	private final HttpHeaders headers = new HttpHeaders();
 
 	@Test
 	public void giteeSample() throws Exception {

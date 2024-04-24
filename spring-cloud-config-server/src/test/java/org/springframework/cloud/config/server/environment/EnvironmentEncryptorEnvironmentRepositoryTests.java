@@ -42,11 +42,11 @@ public class EnvironmentEncryptorEnvironmentRepositoryTests {
 	@Rule
 	public ExpectedException expected = ExpectedException.none();
 
-	private EnvironmentRepository repository = Mockito.mock(EnvironmentRepository.class);
+	private final EnvironmentRepository repository = Mockito.mock(EnvironmentRepository.class);
 
 	private EnvironmentEncryptorEnvironmentRepository controller;
 
-	private Environment environment = new Environment("foo", "master");
+	private final Environment environment = new Environment("foo", "master");
 
 	@BeforeEach
 	public void init() {
@@ -56,7 +56,7 @@ public class EnvironmentEncryptorEnvironmentRepositoryTests {
 	@Test
 	public void allowOverrideFalse() throws Exception {
 		this.controller.setOverrides(Collections.singletonMap("foo", "bar"));
-		Map<String, Object> map = new HashMap<String, Object>();
+		Map<String, Object> map = new HashMap<>();
 		map.put("a.b.c", "d");
 		this.environment.add(new PropertySource("one", map));
 		when(this.repository.findOne("foo", "bar", "master", false)).thenReturn(this.environment);
@@ -67,7 +67,7 @@ public class EnvironmentEncryptorEnvironmentRepositoryTests {
 	@Test
 	public void overrideWithEscapedPlaceholders() throws Exception {
 		this.controller.setOverrides(Collections.singletonMap("foo", "$\\{bar}"));
-		Map<String, Object> map = new HashMap<String, Object>();
+		Map<String, Object> map = new HashMap<>();
 		map.put("bar", "foo");
 		this.environment.add(new PropertySource("one", map));
 		when(this.repository.findOne("foo", "bar", "master", false)).thenReturn(this.environment);

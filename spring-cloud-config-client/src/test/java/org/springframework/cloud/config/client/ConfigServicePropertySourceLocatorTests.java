@@ -65,12 +65,12 @@ import static org.springframework.cloud.config.environment.EnvironmentMediaType.
 
 public class ConfigServicePropertySourceLocatorTests {
 
-	private ConfigurableEnvironment environment = new StandardEnvironment();
+	private final ConfigurableEnvironment environment = new StandardEnvironment();
 
 	private ConfigServicePropertySourceLocator locator = new ConfigServicePropertySourceLocator(
 			new ConfigClientProperties(this.environment));
 
-	private RestTemplate restTemplate = Mockito.mock(RestTemplate.class);
+	private final RestTemplate restTemplate = Mockito.mock(RestTemplate.class);
 
 	@Test
 	public void sunnyDay() {

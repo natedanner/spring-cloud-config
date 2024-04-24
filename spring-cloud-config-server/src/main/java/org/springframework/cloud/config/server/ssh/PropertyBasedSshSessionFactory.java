@@ -67,7 +67,7 @@ public class PropertyBasedSshSessionFactory extends SshdSessionFactory {
 		super(new JGitKeyCache(), new HttpProxyDataFactory(sshKeysByHostname));
 
 		this.sshKeysByHostname = sshKeysByHostname;
-		assert this.sshKeysByHostname.entrySet().size() > 0;
+		assert !this.sshKeysByHostname.entrySet().isEmpty();
 	}
 
 	@Override
@@ -200,7 +200,7 @@ public class PropertyBasedSshSessionFactory extends SshdSessionFactory {
 		return sshProperties;
 	}
 
-	private final static class SingleKeyIdentityProvider implements KeyIdentityProvider, Iterable<KeyPair> {
+	private static final class SingleKeyIdentityProvider implements KeyIdentityProvider, Iterable<KeyPair> {
 
 		private final Map<String, JGitEnvironmentProperties> sshKeysByHostname;
 
@@ -223,7 +223,7 @@ public class PropertyBasedSshSessionFactory extends SshdSessionFactory {
 
 	}
 
-	private final static class HttpProxyDataFactory implements ProxyDataFactory {
+	private static final class HttpProxyDataFactory implements ProxyDataFactory {
 
 		private final Map<String, JGitEnvironmentProperties> sshKeysByHostname;
 

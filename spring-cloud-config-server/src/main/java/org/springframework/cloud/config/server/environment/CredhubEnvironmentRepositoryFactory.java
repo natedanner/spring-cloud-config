@@ -25,7 +25,7 @@ import org.springframework.credhub.core.CredHubOperations;
 public class CredhubEnvironmentRepositoryFactory
 		implements EnvironmentRepositoryFactory<CredhubEnvironmentRepository, CredhubEnvironmentProperties> {
 
-	private CredHubOperations credhubOperations;
+	private final CredHubOperations credhubOperations;
 
 	public CredhubEnvironmentRepositoryFactory(CredHubOperations credhubOperations) {
 		this.credhubOperations = credhubOperations;

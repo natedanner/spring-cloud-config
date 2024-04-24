@@ -33,9 +33,9 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class GithubPropertyPathNotificationExtractorTests {
 
-	private GithubPropertyPathNotificationExtractor extractor = new GithubPropertyPathNotificationExtractor();
+	private final GithubPropertyPathNotificationExtractor extractor = new GithubPropertyPathNotificationExtractor();
 
-	private HttpHeaders headers = new HttpHeaders();
+	private final HttpHeaders headers = new HttpHeaders();
 
 	@Test
 	public void githubSample() throws Exception {

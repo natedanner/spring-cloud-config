@@ -304,7 +304,7 @@ public class AwsS3EnvironmentRepositoryTests {
 	private String putFiles(String fileName, String propertyContent) {
 		toBeRemoved.add(fileName);
 		return s3Client.putObject(PutObjectRequest.builder().bucket("bucket1").key(fileName).build(),
-				RequestBody.fromString((propertyContent))).versionId();
+				RequestBody.fromString(propertyContent)).versionId();
 	}
 
 	private void assertExpectedEnvironment(Environment env, String applicationName, String label, String versionId,

@@ -215,7 +215,7 @@ public class EnvironmentController {
 		validateProfiles(profiles);
 		Environment environment = labelled(name, profiles, label);
 		Map<String, Object> result = convertToMap(environment);
-		if (this.stripDocument && result.size() == 1 && result.keySet().iterator().next().equals("document")) {
+		if (this.stripDocument && result.size() == 1 && "document".equals(result.keySet().iterator().next())) {
 			Object value = result.get("document");
 			if (value instanceof Collection) {
 				return getSuccess(new Yaml().dumpAs(value, Tag.SEQ, FlowStyle.BLOCK));
@@ -325,7 +325,7 @@ public class EnvironmentController {
 	}
 
 	private void postProcessProperties(Map<String, Object> propertiesMap) {
-		propertiesMap.keySet().removeIf(key -> key.equals("spring.profiles"));
+		propertiesMap.keySet().removeIf("spring.profiles"::equals);
 	}
 
 	/**

@@ -37,7 +37,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class BitbucketPropertyPathNotificationExtractorTests {
 
-	private BitbucketPropertyPathNotificationExtractor extractor = new BitbucketPropertyPathNotificationExtractor();
+	private final BitbucketPropertyPathNotificationExtractor extractor = new BitbucketPropertyPathNotificationExtractor();
 
 	private HttpHeaders headers;
 

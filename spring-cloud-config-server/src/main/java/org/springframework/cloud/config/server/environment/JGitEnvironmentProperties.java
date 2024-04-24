@@ -54,12 +54,12 @@ public class JGitEnvironmentProperties extends AbstractScmAccessorProperties
 	 * Flag to indicate that the repository should be cloned on startup (not on demand).
 	 * Generally leads to slower startup but faster first query.
 	 */
-	private boolean cloneOnStart = false;
+	private boolean cloneOnStart;
 
 	/**
 	 * Flag to indicate that the submodules in the repository should be cloned.
 	 */
-	private boolean cloneSubmodules = false;
+	private boolean cloneSubmodules;
 
 	/**
 	 * Flag to indicate that the repository should force pull. If true discard any local
@@ -77,18 +77,18 @@ public class JGitEnvironmentProperties extends AbstractScmAccessorProperties
 	 * Flag to indicate that the branch should be deleted locally if it's origin tracked
 	 * branch was removed.
 	 */
-	private boolean deleteUntrackedBranches = false;
+	private boolean deleteUntrackedBranches;
 
 	/**
 	 * Flag to indicate that SSL certificate validation should be bypassed when
 	 * communicating with a repository served over an HTTPS connection.
 	 */
-	private boolean skipSslValidation = false;
+	private boolean skipSslValidation;
 
 	/**
 	 * Time (in seconds) between refresh of the git repository.
 	 */
-	private int refreshRate = 0;
+	private int refreshRate;
 
 	/**
 	 * Valid SSH private key. Must be set if ignoreLocalSshSettings is true and Git URI is

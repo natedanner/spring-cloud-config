@@ -27,9 +27,9 @@ import org.springframework.core.env.ConfigurableEnvironment;
 public class SvnEnvironmentRepositoryFactory
 		implements EnvironmentRepositoryFactory<SvnKitEnvironmentRepository, SvnKitEnvironmentProperties> {
 
-	private ConfigurableEnvironment environment;
+	private final ConfigurableEnvironment environment;
 
-	private ConfigServerProperties server;
+	private final ConfigServerProperties server;
 
 	private final ObservationRegistry observationRegistry;
 

@@ -51,12 +51,12 @@ class ObservationEnvironmentRepositoryWrapperTests {
 		wrapper.findOne("foo", "bar", "baz");
 
 		assertThat(registry).hasHandledContextsThatSatisfy(contexts -> {
-			contexts.stream().filter(context -> context.getName().equals("spring.cloud.config.environment.find")
+			contexts.stream().filter(context -> "spring.cloud.config.environment.find".equals(context.getName())
 					&& contextExists(context, "spring.cloud.config.environment.class",
 							"org.springframework.cloud.config.server.environment.CompositeEnvironmentRepository"))
 					.findFirst().orElseThrow(
 							() -> new AssertionError("There's no observation for the Composite EnvironmentRepository"));
-			contexts.stream().filter(context -> context.getName().equals("spring.cloud.config.environment.find")
+			contexts.stream().filter(context -> "spring.cloud.config.environment.find".equals(context.getName())
 					&& contextExists(context, "spring.cloud.config.environment.class",
 							"org.springframework.cloud.config.server.environment.ObservationEnvironmentRepositoryWrapperTests$MyEnvRepo"))
 					.findFirst().orElseThrow(

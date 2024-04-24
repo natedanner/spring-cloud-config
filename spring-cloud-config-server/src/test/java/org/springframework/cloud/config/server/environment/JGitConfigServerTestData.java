@@ -37,13 +37,13 @@ import org.springframework.util.ResourceUtils;
  */
 public class JGitConfigServerTestData {
 
-	private LocalGit serverGit;
+	private final LocalGit serverGit;
 
-	private LocalGit clonedGit;
+	private final LocalGit clonedGit;
 
-	private JGitEnvironmentRepository repository;
+	private final JGitEnvironmentRepository repository;
 
-	private ConfigurableApplicationContext context;
+	private final ConfigurableApplicationContext context;
 
 	public JGitConfigServerTestData(LocalGit serverGit, LocalGit clonedGit, JGitEnvironmentRepository repository,
 			ConfigurableApplicationContext context) {

@@ -52,16 +52,13 @@ public class PropertyPathNotification {
 		if (!other.canEqual(this)) {
 			return false;
 		}
-		if (!java.util.Arrays.deepEquals(this.getPaths(), other.getPaths())) {
-			return false;
-		}
-		return true;
+		return !!java.util.Arrays.deepEquals(this.getPaths(), other.getPaths());
 	}
 
 	public int hashCode() {
-		final int PRIME = 59;
+		final int prime = 59;
 		int result = 1;
-		result = result * PRIME + java.util.Arrays.deepHashCode(this.getPaths());
+		result = result * prime + java.util.Arrays.deepHashCode(this.getPaths());
 		return result;
 	}
 

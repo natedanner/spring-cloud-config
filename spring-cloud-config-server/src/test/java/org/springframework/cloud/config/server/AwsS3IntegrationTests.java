@@ -85,21 +85,21 @@ public class AwsS3IntegrationTests {
 						"--logging.level.org.springframework.cloud.config.server.environment=DEBUG", "--debug=true" });
 
 		S3Client s3Client = server.getBean(S3Client.class);
-		CreateBucketResponse bucketResponse = s3Client.createBucket((request) -> request.bucket("test-bucket"));
+		CreateBucketResponse bucketResponse = s3Client.createBucket(request -> request.bucket("test-bucket"));
 		LOG.info("bucket response " + bucketResponse);
 		PutObjectResponse objectResponse = s3Client.putObject(
-				(request) -> request.bucket("test-bucket").key("data.txt"), RequestBody.fromString("this is a test"));
+				request -> request.bucket("test-bucket").key("data.txt"), RequestBody.fromString("this is a test"));
 		LOG.info("object response " + objectResponse);
-		objectResponse = s3Client.putObject((request) -> request.bucket("test-bucket").key("main/data.txt"),
+		objectResponse = s3Client.putObject(request -> request.bucket("test-bucket").key("main/data.txt"),
 				RequestBody.fromString("this is a test in main"));
 		LOG.info("object response " + objectResponse);
-		objectResponse = s3Client.putObject((request) -> request.bucket("test-bucket").key("application.properties"),
+		objectResponse = s3Client.putObject(request -> request.bucket("test-bucket").key("application.properties"),
 				RequestBody.fromString("foo=1"));
 		LOG.info("object response " + objectResponse);
-		objectResponse = s3Client.putObject((request) -> request.bucket("test-bucket").key("data.properties"),
+		objectResponse = s3Client.putObject(request -> request.bucket("test-bucket").key("data.properties"),
 				RequestBody.fromString("bar=1"));
 		LOG.info("object response " + objectResponse);
-		objectResponse = s3Client.putObject((request) -> request.bucket("test-bucket").key("data-dev.properties"),
+		objectResponse = s3Client.putObject(request -> request.bucket("test-bucket").key("data-dev.properties"),
 				RequestBody.fromString("bar=1"));
 		LOG.info("object response " + objectResponse);
 	}

@@ -24,7 +24,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 public class RedisEnvironmentRepositoryFactory
 		implements EnvironmentRepositoryFactory<RedisEnvironmentRepository, RedisEnvironmentProperties> {
 
-	private StringRedisTemplate redis;
+	private final StringRedisTemplate redis;
 
 	public RedisEnvironmentRepositoryFactory(StringRedisTemplate redis) {
 		this.redis = redis;

@@ -44,10 +44,10 @@ public class PassthruEnvironmentRepositoryTests {
 		assertThat(propertySources).hasSize(2);
 		for (PropertySource propertySource : propertySources) {
 			Map source = propertySource.getSource();
-			if (propertySource.getName().equals("myorigintrackedsource")) {
+			if ("myorigintrackedsource".equals(propertySource.getName())) {
 				assertThat(source).containsEntry("keyNoOrigin", "valueNoOrigin");
 			}
-			else if (propertySource.getName().equals("mockProperties")) {
+			else if ("mockProperties".equals(propertySource.getName())) {
 				assertThat(source).containsEntry("normalKey", "normalValue");
 			}
 		}

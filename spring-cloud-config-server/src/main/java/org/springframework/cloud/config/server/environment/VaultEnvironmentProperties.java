@@ -76,7 +76,7 @@ public class VaultEnvironmentProperties implements HttpEnvironmentRepositoryProp
 	 * Flag to indicate that SSL certificate validation should be bypassed when
 	 * communicating with a repository served over an HTTPS connection.
 	 */
-	private boolean skipSslValidation = false;
+	private boolean skipSslValidation;
 
 	/**
 	 * HTTP proxy configuration.
@@ -359,12 +359,12 @@ public class VaultEnvironmentProperties implements HttpEnvironmentRepositoryProp
 		/**
 		 * The RoleId.
 		 */
-		private String roleId = null;
+		private String roleId;
 
 		/**
 		 * The SecretId.
 		 */
-		private String secretId = null;
+		private String secretId;
 
 		public String getAppRolePath() {
 			return this.appRolePath;

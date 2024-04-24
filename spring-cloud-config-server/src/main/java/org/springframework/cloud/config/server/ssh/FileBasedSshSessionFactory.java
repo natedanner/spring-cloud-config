@@ -33,7 +33,7 @@ public class FileBasedSshSessionFactory extends SshdSessionFactory {
 
 	public FileBasedSshSessionFactory(Map<String, JGitEnvironmentProperties> sshKeysByHostname) {
 		this.sshKeysByHostname = sshKeysByHostname;
-		assert this.sshKeysByHostname.entrySet().size() > 0;
+		assert !this.sshKeysByHostname.entrySet().isEmpty();
 	}
 
 	@Override

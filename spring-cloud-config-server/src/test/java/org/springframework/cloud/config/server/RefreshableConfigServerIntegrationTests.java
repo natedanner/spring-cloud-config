@@ -61,7 +61,7 @@ import static org.springframework.cloud.config.server.test.ConfigServerTestUtils
 @DirtiesContext
 public class RefreshableConfigServerIntegrationTests {
 
-	private static String localRepo = null;
+	private static String localRepo;
 
 	@LocalServerPort
 	private int port;

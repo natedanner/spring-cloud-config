@@ -73,7 +73,7 @@ public class JGitEnvironmentRepositoryConcurrencyTests {
 
 	private ConfigurableApplicationContext context;
 
-	private File basedir = new File("target/config");
+	private final File basedir = new File("target/config");
 
 	@BeforeAll
 	public static void initClass() {
@@ -103,7 +103,7 @@ public class JGitEnvironmentRepositoryConcurrencyTests {
 				.properties("spring.cloud.config.server.git.uri:" + uri).run();
 		final EnvironmentRepository repository = this.context.getBean(EnvironmentRepository.class);
 		ExecutorService threads = Executors.newFixedThreadPool(4);
-		List<Future<Boolean>> tasks = new ArrayList<Future<Boolean>>();
+		List<Future<Boolean>> tasks = new ArrayList<>();
 		for (int i = 0; i < 30; i++) {
 			tasks.add(threads.submit(new Runnable() {
 				@Override

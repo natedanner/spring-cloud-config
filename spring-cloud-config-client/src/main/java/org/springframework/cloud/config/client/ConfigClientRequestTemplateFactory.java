@@ -117,16 +117,14 @@ public class ConfigClientRequestTemplateFactory {
 				.create();
 		sslConnectionSocketFactoryBuilder.setSslContext(sslContext);
 		SocketConfig.Builder socketBuilder = createSocketBuilderForTls(client);
-		PoolingHttpClientConnectionManager connectionManager = PoolingHttpClientConnectionManagerBuilder.create()
+		return PoolingHttpClientConnectionManagerBuilder.create()
 				.setDefaultSocketConfig(socketBuilder.build())
 				.setSSLSocketFactory(sslConnectionSocketFactoryBuilder.build()).build();
-		return connectionManager;
 	}
 
 	protected SocketConfig.Builder createSocketBuilderForTls(ConfigClientProperties client) {
-		SocketConfig.Builder socketBuilder = SocketConfig.custom()
+		return SocketConfig.custom()
 				.setSoTimeout(Timeout.of(client.getRequestReadTimeout(), TimeUnit.MILLISECONDS));
-		return socketBuilder;
 	}
 
 	public void addAuthorizationToken(HttpHeaders httpHeaders, String username, String password) {

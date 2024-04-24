@@ -53,12 +53,12 @@ public class ConsulEnvironmentWatch implements EnvironmentWatch {
 	/**
 	 * Response types.
 	 */
-	public static final ParameterizedTypeReference<List<String>> RESPONSE_TYPE = new ParameterizedTypeReference<List<String>>() {
+	public static final ParameterizedTypeReference<List<String>> RESPONSE_TYPE = new ParameterizedTypeReference<>() {
 	};
 
 	private static final String WATCH_URL = "{scheme}://{host}:{port}/v1/kv/{path}?keys&recurse&wait={wait}&index={index}";
 
-	private static Log LOG = LogFactory.getLog(ConsulEnvironmentWatch.class);
+	private static Log log = LogFactory.getLog(ConsulEnvironmentWatch.class);
 
 	private RestTemplate restTemplate = new RestTemplate();
 
@@ -105,13 +105,12 @@ public class ConsulEnvironmentWatch implements EnvironmentWatch {
 					RESPONSE_TYPE, params.toArray());
 
 			if (response.getStatusCode().is2xxSuccessful()) {
-				String consulIndex = response.getHeaders().getFirst(CONSUL_INDEX);
-				return consulIndex;
+				return response.getHeaders().getFirst(CONSUL_INDEX);
 			}
 		}
 		catch (HttpStatusCodeException e) {
 			if (!e.getStatusCode().equals(HttpStatus.NOT_FOUND)) {
-				LOG.error("Unable to watch consul path " + this.path, e);
+				log.error("Unable to watch consul path " + this.path, e);
 				return null;
 			}
 		}

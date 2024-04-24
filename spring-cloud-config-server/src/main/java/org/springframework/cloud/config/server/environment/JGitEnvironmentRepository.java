@@ -99,7 +99,7 @@ public class JGitEnvironmentRepository extends AbstractScmEnvironmentRepository
 	/**
 	 * Time (in seconds) between refresh of the git repository.
 	 */
-	private int refreshRate = 0;
+	private int refreshRate;
 
 	/**
 	 * Time of the last refresh of the git repository.
@@ -549,7 +549,7 @@ public class JGitEnvironmentRepository extends AbstractScmEnvironmentRepository
 		configureCommand(fetch);
 		try {
 			FetchResult result = fetch.call();
-			if (result.getTrackingRefUpdates() != null && result.getTrackingRefUpdates().size() > 0) {
+			if (result.getTrackingRefUpdates() != null && !result.getTrackingRefUpdates().isEmpty()) {
 				this.logger.info("Fetched for remote " + label + " and found " + result.getTrackingRefUpdates().size()
 						+ " updates");
 			}
@@ -635,8 +635,7 @@ public class JGitEnvironmentRepository extends AbstractScmEnvironmentRepository
 	}
 
 	private Git openGitRepository() throws IOException {
-		Git git = this.gitFactory.getGitByOpen(getWorkingDirectory());
-		return git;
+		return this.gitFactory.getGitByOpen(getWorkingDirectory());
 	}
 
 	private Git copyFromLocalRepository() throws IOException {
@@ -767,13 +766,11 @@ public class JGitEnvironmentRepository extends AbstractScmEnvironmentRepository
 		}
 
 		public Git getGitByOpen(File file) throws IOException {
-			Git git = Git.open(file);
-			return git;
+			return Git.open(file);
 		}
 
 		public CloneCommand getCloneCommandByCloneRepository() {
-			CloneCommand command = Git.cloneRepository().setCloneSubmodules(cloneSubmodules);
-			return command;
+			return Git.cloneRepository().setCloneSubmodules(cloneSubmodules);
 		}
 
 	}

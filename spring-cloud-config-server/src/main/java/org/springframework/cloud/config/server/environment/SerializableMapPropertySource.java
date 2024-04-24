@@ -20,9 +20,9 @@ import java.util.Map;
 
 class SerializableMapPropertySource {
 
-	private String name;
+	private final String name;
 
-	private Map<?, ?> source;
+	private final Map<?, ?> source;
 
 	SerializableMapPropertySource(String name, Map<?, ?> source) {
 		this.name = name;

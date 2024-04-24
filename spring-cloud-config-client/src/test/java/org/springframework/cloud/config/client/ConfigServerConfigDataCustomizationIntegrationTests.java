@@ -153,15 +153,14 @@ public class ConfigServerConfigDataCustomizationIntegrationTests {
 		@SuppressWarnings("unchecked")
 		public <T> ResponseEntity<T> exchange(String url, HttpMethod method, HttpEntity<?> requestEntity,
 				Class<T> responseType, Object... uriVariables) throws RestClientException {
-			ResponseEntity<T> response = (ResponseEntity<T>) ResponseEntity.of(Optional.of(new Environment("test")));
-			return response;
+			return (ResponseEntity<T>) ResponseEntity.of(Optional.of(new Environment("test")));
 		}
 
 	}
 
 	static class BindHandlerBootstrapper implements BootstrapRegistryInitializer {
 
-		private int onSuccessCount = 0;
+		private int onSuccessCount;
 
 		@Override
 		public void initialize(BootstrapRegistry registry) {

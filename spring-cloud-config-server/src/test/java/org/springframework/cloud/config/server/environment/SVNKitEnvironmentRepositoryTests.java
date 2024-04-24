@@ -43,12 +43,12 @@ public class SVNKitEnvironmentRepositoryTests {
 
 	private static final String REPOSITORY_NAME = "svn-config-repo";
 
-	private StandardEnvironment environment = new StandardEnvironment();
+	private final StandardEnvironment environment = new StandardEnvironment();
 
-	private SvnKitEnvironmentRepository repository = new SvnKitEnvironmentRepository(this.environment,
+	private final SvnKitEnvironmentRepository repository = new SvnKitEnvironmentRepository(this.environment,
 			new SvnKitEnvironmentProperties(), ObservationRegistry.NOOP);
 
-	private File basedir = new File("target/config");
+	private final File basedir = new File("target/config");
 
 	@BeforeEach
 	public void init() throws Exception {

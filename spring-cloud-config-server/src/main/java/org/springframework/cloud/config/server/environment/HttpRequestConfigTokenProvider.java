@@ -27,7 +27,7 @@ import org.springframework.util.StringUtils;
  */
 public class HttpRequestConfigTokenProvider implements ConfigTokenProvider {
 
-	private ObjectProvider<HttpServletRequest> httpRequest;
+	private final ObjectProvider<HttpServletRequest> httpRequest;
 
 	public HttpRequestConfigTokenProvider(ObjectProvider<HttpServletRequest> httpRequest) {
 		this.httpRequest = httpRequest;

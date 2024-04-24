@@ -38,9 +38,9 @@ public class CipherResourceYamlEncryptorTests {
 
 	private final String key = "foo";
 
-	private TextEncryptor textEncryptor = new EncryptorFactory(salt).create(key);
+	private final TextEncryptor textEncryptor = new EncryptorFactory(salt).create(key);
 
-	private CipherResourceYamlEncryptor encryptor = new CipherResourceYamlEncryptor(new TextEncryptorLocator() {
+	private final CipherResourceYamlEncryptor encryptor = new CipherResourceYamlEncryptor(new TextEncryptorLocator() {
 		@Override
 		public TextEncryptor locate(Map<String, String> keys) {
 			return CipherResourceYamlEncryptorTests.this.textEncryptor;

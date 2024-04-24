@@ -40,15 +40,15 @@ import org.springframework.web.client.RestTemplate;
  */
 public class GoogleSecretManagerEnvironmentRepository implements EnvironmentRepository, Ordered {
 
-	private String applicationLabel;
+	private final String applicationLabel;
 
-	private String profileLabel;
+	private final String profileLabel;
 
-	private GoogleSecretManagerAccessStrategy accessStrategy;
+	private final GoogleSecretManagerAccessStrategy accessStrategy;
 
-	private boolean tokenMandatory;
+	private final boolean tokenMandatory;
 
-	private GoogleConfigProvider configProvider;
+	private final GoogleConfigProvider configProvider;
 
 	private final int order;
 

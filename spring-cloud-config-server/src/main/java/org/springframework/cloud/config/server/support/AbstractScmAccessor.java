@@ -221,7 +221,7 @@ public abstract class AbstractScmAccessor implements ResourceLoaderAware {
 		else if (!Arrays.equals(locations, AbstractScmAccessorProperties.DEFAULT_LOCATIONS)) {
 			locations = StringUtils.concatenateStringArrays(AbstractScmAccessorProperties.DEFAULT_LOCATIONS, locations);
 		}
-		Collection<String> output = new LinkedHashSet<String>();
+		Collection<String> output = new LinkedHashSet<>();
 		for (String location : locations) {
 			String[] profiles = new String[] { profile };
 			if (profile != null) {
@@ -254,7 +254,7 @@ public abstract class AbstractScmAccessor implements ResourceLoaderAware {
 	}
 
 	private List<String> matchingDirectories(File dir, String value) {
-		List<String> output = new ArrayList<String>();
+		List<String> output = new ArrayList<>();
 		try {
 			PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver(this.resourceLoader);
 			String path = new File(dir, value).toURI().toString();

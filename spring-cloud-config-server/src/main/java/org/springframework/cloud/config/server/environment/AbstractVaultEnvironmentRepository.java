@@ -46,7 +46,7 @@ import static org.springframework.cloud.config.client.ConfigClientProperties.STA
  */
 public abstract class AbstractVaultEnvironmentRepository implements EnvironmentRepository, Ordered {
 
-	private static Log log = LogFactory.getLog(AbstractVaultEnvironmentRepository.class);
+	private static final Log log = LogFactory.getLog(AbstractVaultEnvironmentRepository.class);
 
 	// TODO: move to watchState:String on findOne?
 	protected final ObjectProvider<HttpServletRequest> request;

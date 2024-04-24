@@ -307,8 +307,7 @@ public class ConfigServicePropertySourceLocator implements PropertySourceLocator
 				return null;
 			}
 
-			Environment result = response.getBody();
-			return result;
+			return response.getBody();
 		}
 
 		return null;

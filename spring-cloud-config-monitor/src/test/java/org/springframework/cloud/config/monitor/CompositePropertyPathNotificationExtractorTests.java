@@ -35,10 +35,10 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class CompositePropertyPathNotificationExtractorTests {
 
-	private CompositePropertyPathNotificationExtractor extractor = new CompositePropertyPathNotificationExtractor(Arrays
+	private final CompositePropertyPathNotificationExtractor extractor = new CompositePropertyPathNotificationExtractor(Arrays
 			.asList(new GitlabPropertyPathNotificationExtractor(), new GithubPropertyPathNotificationExtractor()));
 
-	private HttpHeaders headers = new HttpHeaders();
+	private final HttpHeaders headers = new HttpHeaders();
 
 	@Test
 	public void githubSample() throws Exception {
@@ -68,7 +68,7 @@ public class CompositePropertyPathNotificationExtractorTests {
 
 	@Test
 	public void fallback() throws Exception {
-		Map<String, Object> value = Collections.<String, Object>singletonMap("path", "foo");
+		Map<String, Object> value = Collections.singletonMap("path", "foo");
 		PropertyPathNotification extracted = this.extractor.extract(this.headers, value);
 		assertThat(extracted).isNotNull();
 		assertThat(extracted.getPaths()[0]).isEqualTo("foo");

@@ -70,7 +70,7 @@ public class ConfigServerHealthIndicator extends AbstractHealthIndicator {
 		List<Map<String, Object>> details = new ArrayList<>();
 		for (String name : this.repositories.keySet()) {
 			Repository repository = this.repositories.get(name);
-			String application = (repository.getName() == null) ? name : repository.getName();
+			String application = repository.getName() == null ? name : repository.getName();
 			String profiles = repository.getProfiles();
 
 			try {

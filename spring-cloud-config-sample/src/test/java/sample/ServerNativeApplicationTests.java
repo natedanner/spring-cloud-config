@@ -36,7 +36,7 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 @SpringBootTest(classes = Application.class, properties = "spring.application.name:bad", webEnvironment = RANDOM_PORT)
 public class ServerNativeApplicationTests {
 
-	private static int configPort = 0;
+	private static int configPort;
 
 	private static ConfigurableApplicationContext server;
 

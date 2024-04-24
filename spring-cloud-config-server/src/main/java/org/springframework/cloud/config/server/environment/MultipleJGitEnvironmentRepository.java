@@ -52,9 +52,9 @@ public class MultipleJGitEnvironmentRepository extends JGitEnvironmentRepository
 	/**
 	 * Map of repository identifier to location and other properties.
 	 */
-	private Map<String, PatternMatchingJGitEnvironmentRepository> repos = new LinkedHashMap<>();
+	private final Map<String, PatternMatchingJGitEnvironmentRepository> repos = new LinkedHashMap<>();
 
-	private Map<String, JGitEnvironmentRepository> placeholders = new LinkedHashMap<>();
+	private final Map<String, JGitEnvironmentRepository> placeholders = new LinkedHashMap<>();
 
 	private final ObservationRegistry observationRegistry;
 

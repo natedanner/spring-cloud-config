@@ -39,7 +39,7 @@ import org.springframework.core.env.Environment;
  */
 public class CompositeEnvironmentBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
 
-	private Environment environment;
+	private final Environment environment;
 
 	public CompositeEnvironmentBeanFactoryPostProcessor(Environment environment) {
 		this.environment = environment;

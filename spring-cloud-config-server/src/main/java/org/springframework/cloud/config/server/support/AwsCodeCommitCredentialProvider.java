@@ -206,7 +206,7 @@ public class AwsCodeCommitCredentialProvider extends CredentialsProvider {
 			URL url = new URL(uri);
 			URI u = new URI(url.getProtocol(), url.getUserInfo(), url.getHost(), url.getPort(), url.getPath(),
 					url.getQuery(), url.getRef());
-			if (u.getScheme().equals("https")) {
+			if ("https".equals(u.getScheme())) {
 				String host = u.getHost();
 				if (host.endsWith(".amazonaws.com") && host.startsWith("git-codecommit.")) {
 					return true;
@@ -318,7 +318,7 @@ public class AwsCodeCommitCredentialProvider extends CredentialsProvider {
 				this.logger.trace("Returning password " + codeCommitPassword);
 				continue;
 			}
-			if (i instanceof CredentialItem.StringType && i.getPromptText().equals("Password: ")) { //$NON-NLS-1$
+			if (i instanceof CredentialItem.StringType && "Password: ".equals(i.getPromptText())) { //$NON-NLS-1$
 				((CredentialItem.StringType) i).setValue(codeCommitPassword);
 				this.logger.trace("Returning password string " + codeCommitPassword);
 				continue;

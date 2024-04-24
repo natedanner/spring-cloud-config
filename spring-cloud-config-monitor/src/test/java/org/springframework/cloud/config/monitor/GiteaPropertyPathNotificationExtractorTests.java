@@ -33,9 +33,9 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class GiteaPropertyPathNotificationExtractorTests {
 
-	private GiteaPropertyPathNotificationExtractor extractor = new GiteaPropertyPathNotificationExtractor();
+	private final GiteaPropertyPathNotificationExtractor extractor = new GiteaPropertyPathNotificationExtractor();
 
-	private HttpHeaders headers = new HttpHeaders();
+	private final HttpHeaders headers = new HttpHeaders();
 
 	@Test
 	public void giteaSample() throws Exception {

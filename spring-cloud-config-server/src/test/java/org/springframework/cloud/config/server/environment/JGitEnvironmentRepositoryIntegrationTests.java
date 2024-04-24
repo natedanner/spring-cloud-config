@@ -76,7 +76,7 @@ public class JGitEnvironmentRepositoryIntegrationTests {
 
 	private ConfigurableApplicationContext context;
 
-	private File basedir = new File("target/config");
+	private final File basedir = new File("target/config");
 
 	@BeforeAll
 	public static void initClass() {

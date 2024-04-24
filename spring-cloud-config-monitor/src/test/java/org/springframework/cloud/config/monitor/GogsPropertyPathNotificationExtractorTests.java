@@ -33,9 +33,9 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class GogsPropertyPathNotificationExtractorTests {
 
-	private GogsPropertyPathNotificationExtractor extractor = new GogsPropertyPathNotificationExtractor();
+	private final GogsPropertyPathNotificationExtractor extractor = new GogsPropertyPathNotificationExtractor();
 
-	private HttpHeaders headers = new HttpHeaders();
+	private final HttpHeaders headers = new HttpHeaders();
 
 	@Test
 	public void gogsSample() throws Exception {

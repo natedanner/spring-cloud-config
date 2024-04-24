@@ -50,7 +50,7 @@ public class CipherResourcePropertiesEncryptor extends AbstractCipherResourceEnc
 
 	@Override
 	public String decrypt(String text, Environment environment) throws IOException {
-		Set<String> valsToDecrpyt = new HashSet<String>();
+		Set<String> valsToDecrpyt = new HashSet<>();
 		Properties properties = new Properties();
 		StringBuffer sb = new StringBuffer();
 		properties.load(new ByteArrayInputStream(text.getBytes()));

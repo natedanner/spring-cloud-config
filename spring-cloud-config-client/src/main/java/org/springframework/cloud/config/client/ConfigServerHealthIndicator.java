@@ -36,11 +36,11 @@ import static org.springframework.cloud.config.client.ConfigServerConfigDataLoca
  */
 public class ConfigServerHealthIndicator extends AbstractHealthIndicator {
 
-	private ConfigClientHealthProperties properties;
+	private final ConfigClientHealthProperties properties;
 
-	private ConfigurableEnvironment environment;
+	private final ConfigurableEnvironment environment;
 
-	private long lastAccess = 0;
+	private long lastAccess;
 
 	private List<PropertySource<?>> cached = new ArrayList<>();
 

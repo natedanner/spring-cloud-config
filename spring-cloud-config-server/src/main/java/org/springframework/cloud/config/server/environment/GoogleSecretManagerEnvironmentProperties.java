@@ -32,7 +32,7 @@ public class GoogleSecretManagerEnvironmentProperties implements EnvironmentRepo
 
 	private String profileLabel = "profile";
 
-	private String serviceAccount = null;
+	private String serviceAccount;
 
 	private boolean tokenMandatory = true;
 

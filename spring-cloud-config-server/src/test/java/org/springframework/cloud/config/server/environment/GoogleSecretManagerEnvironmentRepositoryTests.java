@@ -78,7 +78,7 @@ public class GoogleSecretManagerEnvironmentRepositoryTests {
 		SecretManagerServiceClient.ListSecretsPagedResponse response = mock(
 				SecretManagerServiceClient.ListSecretsPagedResponse.class);
 		Secret secret = Secret.newBuilder().setName("projects/test-project/secrets/test").build();
-		List<Secret> secrets = new ArrayList<Secret>();
+		List<Secret> secrets = new ArrayList<>();
 		secrets.add(secret);
 		when(response.iterateAll()).thenReturn(secrets);
 		Mockito.doReturn(response).when(mock).listSecrets(any(ListSecretsRequest.class));
@@ -103,7 +103,7 @@ public class GoogleSecretManagerEnvironmentRepositoryTests {
 				.setState(SecretVersion.State.ENABLED).build();
 		SecretVersion secret4 = SecretVersion.newBuilder().setName("projects/test-project/secrets/test/versions/12")
 				.setState(SecretVersion.State.ENABLED).build();
-		List<SecretVersion> secrets = new ArrayList<SecretVersion>();
+		List<SecretVersion> secrets = new ArrayList<>();
 		secrets.add(secret1);
 		secrets.add(secret2);
 		secrets.add(secret3);
@@ -117,13 +117,10 @@ public class GoogleSecretManagerEnvironmentRepositoryTests {
 		when(accessSecretVersionResponse.getPayload()).thenReturn(payload);
 		when(payload.getData()).thenReturn(data);
 		when(data.toStringUtf8()).thenReturn("test-value");
-		ArgumentMatcher<AccessSecretVersionRequest> matcher = new ArgumentMatcher<AccessSecretVersionRequest>() {
+		ArgumentMatcher<AccessSecretVersionRequest> matcher = new ArgumentMatcher<>() {
 			@Override
 			public boolean matches(AccessSecretVersionRequest accessSecretVersionRequest) {
-				if (accessSecretVersionRequest.getName().equals("projects/test-project/secrets/test/versions/12")) {
-					return true;
-				}
-				return false;
+				return "projects/test-project/secrets/test/versions/12".equals(accessSecretVersionRequest.getName());
 			}
 		};
 		Mockito.doReturn(accessSecretVersionResponse).when(mock).accessSecretVersion(ArgumentMatchers.argThat(matcher));

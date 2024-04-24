@@ -46,7 +46,7 @@ public class ConfigServerConfigDataResource extends ConfigDataResource {
 
 	private Log log;
 
-	private boolean isProfileSpecific = false;
+	private boolean isProfileSpecific;
 
 	public ConfigServerConfigDataResource(ConfigClientProperties properties, boolean optional, Profiles profiles) {
 		this.properties = properties;
@@ -80,8 +80,8 @@ public class ConfigServerConfigDataResource extends ConfigDataResource {
 
 	List<String> getAcceptedProfiles() {
 		if (profiles == null) {
-			return Collections.singletonList(!properties.getProfile().equals(ConfigClientProperties.DEFAULT_PROFILE)
-					? properties.getProfile() : ConfigClientProperties.DEFAULT_PROFILE);
+			return Collections.singletonList(properties.getProfile().equals(ConfigClientProperties.DEFAULT_PROFILE)
+					? ConfigClientProperties.DEFAULT_PROFILE : properties.getProfile());
 		}
 		return this.profiles.getAccepted();
 	}

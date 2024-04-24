@@ -53,7 +53,7 @@ public class MultipleJGitEnvironmentRepositoryIntegrationTests {
 
 	private ConfigurableApplicationContext context;
 
-	private File basedir = new File("target/config");
+	private final File basedir = new File("target/config");
 
 	@BeforeAll
 	public static void initClass() {
@@ -91,7 +91,7 @@ public class MultipleJGitEnvironmentRepositoryIntegrationTests {
 		String defaultRepoUri = ConfigServerTestUtils.prepareLocalRepo("config-repo");
 		String test1RepoUri = ConfigServerTestUtils.prepareLocalRepo("test1-config-repo");
 
-		Map<String, Object> repoMapping = new LinkedHashMap<String, Object>();
+		Map<String, Object> repoMapping = new LinkedHashMap<>();
 		repoMapping.put("spring.cloud.config.server.git.repos[test1].pattern", "*test1*");
 		repoMapping.put("spring.cloud.config.server.git.repos[test1].uri", test1RepoUri);
 		this.context = new SpringApplicationBuilder(TestConfiguration.class).web(WebApplicationType.NONE)
@@ -106,7 +106,7 @@ public class MultipleJGitEnvironmentRepositoryIntegrationTests {
 		String defaultRepoUri = ConfigServerTestUtils.prepareLocalRepo("config-repo");
 		String test1RepoUri = ConfigServerTestUtils.prepareLocalRepo("test1-config-repo");
 
-		Map<String, Object> repoMapping = new LinkedHashMap<String, Object>();
+		Map<String, Object> repoMapping = new LinkedHashMap<>();
 		repoMapping.put("spring.cloud.config.server.git.repos[test1].pattern", "*test1*");
 		repoMapping.put("spring.cloud.config.server.git.repos[test1].uri", test1RepoUri);
 		repoMapping.put("spring.cloud.config.server.git.refresh-rate", "30");
@@ -124,7 +124,7 @@ public class MultipleJGitEnvironmentRepositoryIntegrationTests {
 		String defaultRepoUri = ConfigServerTestUtils.prepareLocalRepo("config-repo");
 		String test1RepoUri = ConfigServerTestUtils.prepareLocalRepo("test1-config-repo");
 
-		Map<String, Object> repoMapping = new LinkedHashMap<String, Object>();
+		Map<String, Object> repoMapping = new LinkedHashMap<>();
 		repoMapping.put("spring.cloud.config.server.git.repos[test1].pattern", "*/staging");
 		repoMapping.put("spring.cloud.config.server.git.repos[test1].uri", test1RepoUri);
 		this.context = new SpringApplicationBuilder(TestConfiguration.class).web(WebApplicationType.NONE)
@@ -139,7 +139,7 @@ public class MultipleJGitEnvironmentRepositoryIntegrationTests {
 		String defaultRepoUri = ConfigServerTestUtils.prepareLocalRepo("config-repo");
 		String test1RepoUri = ConfigServerTestUtils.prepareLocalRepo("test1-config-repo");
 
-		Map<String, Object> repoMapping = new LinkedHashMap<String, Object>();
+		Map<String, Object> repoMapping = new LinkedHashMap<>();
 		repoMapping.put("spring.cloud.config.server.git.repos[test1].pattern", "*/staging");
 		repoMapping.put("spring.cloud.config.server.git.repos[test1].uri", test1RepoUri);
 		this.context = new SpringApplicationBuilder(TestConfiguration.class).web(WebApplicationType.NONE)
@@ -154,7 +154,7 @@ public class MultipleJGitEnvironmentRepositoryIntegrationTests {
 		String defaultRepoUri = ConfigServerTestUtils.prepareLocalRepo("config-repo");
 		String test1RepoUri = ConfigServerTestUtils.prepareLocalRepo("test1-config-repo");
 
-		Map<String, Object> repoMapping = new LinkedHashMap<String, Object>();
+		Map<String, Object> repoMapping = new LinkedHashMap<>();
 		repoMapping.put("spring.cloud.config.server.git.repos[test1].pattern[0]", "*/staging,*");
 		repoMapping.put("spring.cloud.config.server.git.repos[test1].pattern[1]", "*/*,staging");
 		repoMapping.put("spring.cloud.config.server.git.repos[test1].pattern[2]", "*/staging");
@@ -173,7 +173,7 @@ public class MultipleJGitEnvironmentRepositoryIntegrationTests {
 		String defaultRepoUri = ConfigServerTestUtils.prepareLocalRepo("config-repo");
 		String test1RepoUri = ConfigServerTestUtils.prepareLocalRepo("test1-config-repo");
 
-		Map<String, Object> repoMapping = new LinkedHashMap<String, Object>();
+		Map<String, Object> repoMapping = new LinkedHashMap<>();
 		repoMapping.put("spring.cloud.config.server.git.repos.test1-svc.uri", test1RepoUri);
 		this.context = new SpringApplicationBuilder(TestConfiguration.class).web(WebApplicationType.NONE)
 				.properties("spring.cloud.config.server.git.uri:" + defaultRepoUri).properties(repoMapping).run();

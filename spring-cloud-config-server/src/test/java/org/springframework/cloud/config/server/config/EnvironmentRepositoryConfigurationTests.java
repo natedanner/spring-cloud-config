@@ -46,7 +46,7 @@ public class EnvironmentRepositoryConfigurationTests {
 						"spring.cloud.config.server.composite[0].type=vault",
 						"spring.cloud.config.server.composite[1].type=git",
 						"spring.cloud.config.server.composite[1].uri=https://test.com/Some-Test-Repo.git")
-				.run((context) -> {
+				.run(context -> {
 					assertThat(context.getBean(ConfigTokenProvider.class)).isNotNull();
 					assertThat(context.getBean(ConfigTokenProvider.class))
 							.isInstanceOf(EnvironmentConfigTokenProvider.class);
@@ -65,9 +65,8 @@ public class EnvironmentRepositoryConfigurationTests {
 						"spring.cloud.config.server.composite[0].region=us-east-1",
 						"spring.cloud.config.server.composite[1].type=git",
 						"spring.cloud.config.server.composite[1].uri=https://test.com/Some-Test-Repo.git")
-				.run((context) -> {
-					assertThat(context.getBean(AwsParameterStoreEnvironmentRepositoryFactory.class)).isNotNull();
-				});
+				.run(context ->
+					assertThat(context.getBean(AwsParameterStoreEnvironmentRepositoryFactory.class)).isNotNull());
 	}
 
 	@Test
@@ -77,10 +76,9 @@ public class EnvironmentRepositoryConfigurationTests {
 						EnvironmentRepositoryConfiguration.class))
 				.withPropertyValues("spring.profiles.active=git",
 						"spring.cloud.config.server.git.uri=http://github.com/user/test")
-				.run((context) -> {
+				.run(context ->
 					assertThat(context.getBean(GitCredentialsProviderFactory.class))
-							.isInstanceOf(GitTestBeans.CustomGitCredentialsProviderFactory.class);
-				});
+							.isInstanceOf(GitTestBeans.CustomGitCredentialsProviderFactory.class));
 	}
 
 	@Test
@@ -90,7 +88,7 @@ public class EnvironmentRepositoryConfigurationTests {
 						EnvironmentRepositoryConfigurationTests.EnableConfigurationPropertiesBeans.class,
 						EnvironmentRepositoryConfiguration.ConfigServerActuatorConfiguration.class))
 				.withPropertyValues("spring.cloud.config.server.health.down-health-status=CUSTOMIZED")
-				.run((context) -> {
+				.run(context -> {
 					ConfigServerHealthIndicator healthIndicator = context.getBean(ConfigServerHealthIndicator.class);
 					assertThat(ReflectionTestUtils.getField(healthIndicator, "downHealthStatus"))
 							.isEqualTo("CUSTOMIZED");

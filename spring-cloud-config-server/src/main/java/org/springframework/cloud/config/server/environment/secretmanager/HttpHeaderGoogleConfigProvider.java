@@ -39,7 +39,7 @@ public class HttpHeaderGoogleConfigProvider implements GoogleConfigProvider {
 	 */
 	public static final String PREFIX_HEADER = "X-Secret-Prefix";
 
-	private ObjectProvider<HttpServletRequest> httpRequest;
+	private final ObjectProvider<HttpServletRequest> httpRequest;
 
 	public HttpHeaderGoogleConfigProvider(ObjectProvider<HttpServletRequest> request) {
 		this.httpRequest = request;

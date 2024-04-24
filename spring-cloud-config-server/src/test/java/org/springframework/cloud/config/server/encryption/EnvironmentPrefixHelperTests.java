@@ -29,7 +29,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class EnvironmentPrefixHelperTests {
 
-	private EnvironmentPrefixHelper helper = new EnvironmentPrefixHelper();
+	private final EnvironmentPrefixHelper helper = new EnvironmentPrefixHelper();
 
 	@Test
 	public void testAddPrefix() {

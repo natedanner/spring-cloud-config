@@ -41,9 +41,9 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class MultipleJGitEnvironmentApplicationPlaceholderRepositoryTests {
 
-	private StandardEnvironment environment = new StandardEnvironment();
+	private final StandardEnvironment environment = new StandardEnvironment();
 
-	private MultipleJGitEnvironmentRepository repository = new MultipleJGitEnvironmentRepository(this.environment,
+	private final MultipleJGitEnvironmentRepository repository = new MultipleJGitEnvironmentRepository(this.environment,
 			new MultipleJGitEnvironmentProperties(), ObservationRegistry.NOOP);
 
 	@BeforeAll

@@ -35,15 +35,15 @@ import org.springframework.security.rsa.crypto.RsaSecretEncryptor;
  */
 public class KeyStoreTextEncryptorLocator implements TextEncryptorLocator {
 
-	private final static String KEY = "key";
+	private static final String KEY = "key";
 
-	private final static String SECRET = "secret";
+	private static final String SECRET = "secret";
 
-	private KeyStoreKeyFactory keys;
+	private final KeyStoreKeyFactory keys;
 
-	private String defaultSecret;
+	private final String defaultSecret;
 
-	private String defaultAlias;
+	private final String defaultAlias;
 
 	private RsaSecretEncryptor defaultEncryptor;
 
@@ -51,7 +51,7 @@ public class KeyStoreTextEncryptorLocator implements TextEncryptorLocator {
 
 	private RsaAlgorithm rsaAlgorithm = RsaAlgorithm.DEFAULT;
 
-	private boolean strong = false;
+	private boolean strong;
 
 	private String salt = "deadbeef";
 

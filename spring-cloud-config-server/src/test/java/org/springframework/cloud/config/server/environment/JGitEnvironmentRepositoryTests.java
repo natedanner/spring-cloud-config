@@ -103,11 +103,11 @@ public class JGitEnvironmentRepositoryTests {
 
 	RefDatabase database = Mockito.mock(RefDatabase.class);
 
-	private StandardEnvironment environment = new StandardEnvironment();
+	private final StandardEnvironment environment = new StandardEnvironment();
 
 	private JGitEnvironmentRepository repository;
 
-	private File basedir = new File("target/config");
+	private final File basedir = new File("target/config");
 
 	private final ObjectId newObjectId = ObjectId.fromRaw(new int[] { 1, 2, 3, 4, 5 });
 
@@ -1203,7 +1203,7 @@ public class JGitEnvironmentRepositoryTests {
 	 */
 	@Test
 	public void afterPropertiesSet_CloneOnStartTrue_DefaultLabelSet_CloneAndCheckoutCalled() throws Exception {
-		final String LABEL_TO_CHECKOUT = "release";
+		final String labelToCheckout = "release";
 		// Set the default branch of repository as master
 		Repository mockRepository = mock(Repository.class);
 		when(mockRepository.getBranch()).thenReturn("master");
@@ -1248,7 +1248,7 @@ public class JGitEnvironmentRepositoryTests {
 		envRepository.setCloneOnStart(true);
 
 		// Set the label to checkout. should be different from master
-		envRepository.setDefaultLabel(LABEL_TO_CHECKOUT);
+		envRepository.setDefaultLabel(labelToCheckout);
 		envRepository.afterPropertiesSet();
 		verify(mockCloneCommand, times(1)).call();
 		verify(mockCheckoutCommand, times(1)).call();
@@ -1369,7 +1369,7 @@ public class JGitEnvironmentRepositoryTests {
 	@Test
 	public void afterPropertiesSet_CloneOnStartTrue_DefaultLabelSameAsDefaultBranch_CheckoutNotCalled()
 			throws Exception {
-		final String LABEL_TO_CHECKOUT = "master";
+		final String labelToCheckout = "master";
 		// Set the default branch of repository as master
 		Repository mockRepository = mock(Repository.class);
 		when(mockRepository.getBranch()).thenReturn("master");
@@ -1414,7 +1414,7 @@ public class JGitEnvironmentRepositoryTests {
 		envRepository.setCloneOnStart(true);
 
 		// Set the label to checkout. should be different from master
-		envRepository.setDefaultLabel(LABEL_TO_CHECKOUT);
+		envRepository.setDefaultLabel(labelToCheckout);
 		envRepository.afterPropertiesSet();
 		verify(mockCloneCommand, times(1)).call();
 		// Checkout/List Branch/Checkout setName should not be called

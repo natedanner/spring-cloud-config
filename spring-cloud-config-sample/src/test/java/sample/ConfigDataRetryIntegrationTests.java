@@ -104,7 +104,7 @@ public class ConfigDataRetryIntegrationTests {
 				@Override
 				public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 						throws Exception {
-					if (request.getServletPath().equals("/retryapp/default")) {
+					if ("/retryapp/default".equals(request.getServletPath())) {
 						return count.incrementAndGet() > 1;
 					}
 					return true;

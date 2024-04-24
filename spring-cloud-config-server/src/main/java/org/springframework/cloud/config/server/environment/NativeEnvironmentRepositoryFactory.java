@@ -27,9 +27,9 @@ import org.springframework.core.env.ConfigurableEnvironment;
 public class NativeEnvironmentRepositoryFactory
 		implements EnvironmentRepositoryFactory<NativeEnvironmentRepository, NativeEnvironmentProperties> {
 
-	private ConfigurableEnvironment environment;
+	private final ConfigurableEnvironment environment;
 
-	private ConfigServerProperties properties;
+	private final ConfigServerProperties properties;
 
 	private final ObservationRegistry observationRegistry;
 

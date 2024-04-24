@@ -185,14 +185,12 @@ public class ResourceControllerIntegrationTests {
 
 		@Bean
 		public EnvironmentRepository environmentRepository() {
-			EnvironmentRepository repository = Mockito.mock(EnvironmentRepository.class);
-			return repository;
+			return Mockito.mock(EnvironmentRepository.class);
 		}
 
 		@Bean
 		public ResourceRepository resourceRepository() {
-			ResourceRepository repository = Mockito.mock(ResourceRepository.class);
-			return repository;
+			return Mockito.mock(ResourceRepository.class);
 		}
 
 		@Bean

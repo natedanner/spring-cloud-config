@@ -41,7 +41,7 @@ abstract class AbstractCipherResourceEncryptor implements ResourceEncryptor {
 
 	private final TextEncryptorLocator encryptor;
 
-	private EnvironmentPrefixHelper helper = new EnvironmentPrefixHelper();
+	private final EnvironmentPrefixHelper helper = new EnvironmentPrefixHelper();
 
 	AbstractCipherResourceEncryptor(TextEncryptorLocator encryptor) {
 		this.encryptor = encryptor;
@@ -55,7 +55,7 @@ abstract class AbstractCipherResourceEncryptor implements ResourceEncryptor {
 
 	protected String decryptWithJacksonParser(String text, String name, String[] profiles, JsonFactory factory)
 			throws IOException {
-		Set<String> valsToDecrpyt = new HashSet<String>();
+		Set<String> valsToDecrpyt = new HashSet<>();
 		JsonParser parser = factory.createParser(text);
 		JsonToken token;
 

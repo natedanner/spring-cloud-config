@@ -354,8 +354,7 @@ public class ConfigServerConfigDataLoader implements ConfigDataLoader<ConfigServ
 				return null;
 			}
 
-			Environment result = response.getBody();
-			return result;
+			return response.getBody();
 		}
 
 		return null;

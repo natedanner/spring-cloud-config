@@ -54,7 +54,7 @@ public class EncryptionController {
 
 	private static Log logger = LogFactory.getLog(EncryptionController.class);
 
-	volatile private TextEncryptorLocator encryptorLocator;
+	private volatile TextEncryptorLocator encryptorLocator;
 
 	private EnvironmentPrefixHelper helper = new EnvironmentPrefixHelper();
 
@@ -161,7 +161,7 @@ public class EncryptionController {
 	}
 
 	private void validateEncryptionWeakness(TextEncryptor textEncryptor) {
-		if (textEncryptor.encrypt("FOO").equals("FOO")) {
+		if ("FOO".equals(textEncryptor.encrypt("FOO"))) {
 			throw new EncryptionTooWeakException();
 		}
 	}

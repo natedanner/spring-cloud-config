@@ -16,7 +16,6 @@
 
 package org.springframework.cloud.config.server.environment.secretmanager;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -72,7 +71,7 @@ public class GoogleSecretManagerV1AccessStrategy implements GoogleSecretManagerA
 	public GoogleSecretManagerV1AccessStrategy(RestTemplate rest, GoogleConfigProvider configProvider,
 			String serviceAccountFile) throws IOException {
 		if (StringUtils.isNotEmpty(serviceAccountFile)) {
-			GoogleCredentials creds = GoogleCredentials.fromStream(new FileInputStream(new File(serviceAccountFile)));
+			GoogleCredentials creds = GoogleCredentials.fromStream(new FileInputStream(serviceAccountFile));
 			this.client = SecretManagerServiceClient.create(SecretManagerServiceSettings.newBuilder()
 					.setCredentialsProvider(FixedCredentialsProvider.create(creds)).build());
 		}
@@ -102,7 +101,7 @@ public class GoogleSecretManagerV1AccessStrategy implements GoogleSecretManagerA
 		SecretManagerServiceClient.ListSecretsPagedResponse pagedListSecretResponse = client
 				.listSecrets(listSecretRequest);
 
-		List<Secret> result = new ArrayList<Secret>();
+		List<Secret> result = new ArrayList<>();
 		pagedListSecretResponse.iterateAll().forEach(result::add);
 
 		// List all secrets.
@@ -119,7 +118,7 @@ public class GoogleSecretManagerV1AccessStrategy implements GoogleSecretManagerA
 		// Get all versions.
 		SecretManagerServiceClient.ListSecretVersionsPagedResponse pagedListVersionResponse = client
 				.listSecretVersions(listVersionRequest);
-		List<SecretVersion> result = new ArrayList<SecretVersion>();
+		List<SecretVersion> result = new ArrayList<>();
 		pagedListVersionResponse.iterateAll().forEach(result::add);
 		return result;
 	}
@@ -197,7 +196,7 @@ public class GoogleSecretManagerV1AccessStrategy implements GoogleSecretManagerA
 		}
 		catch (Exception e) {
 			// not in GCP
-			HttpEntity<String> entity = new HttpEntity<String>("parameters", getMetadataHttpHeaders());
+			HttpEntity<String> entity = new HttpEntity<>("parameters", getMetadataHttpHeaders());
 			result = rest.exchange(GoogleSecretManagerEnvironmentProperties.GOOGLE_METADATA_PROJECT_URL, HttpMethod.GET,
 					entity, String.class).getBody();
 		}

@@ -34,7 +34,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class KeyStoreTextEncryptorLocatorTests {
 
-	private KeyStoreTextEncryptorLocator locator = new KeyStoreTextEncryptorLocator(
+	private final KeyStoreTextEncryptorLocator locator = new KeyStoreTextEncryptorLocator(
 			new KeyStoreKeyFactory(new ClassPathResource("server.jks"), "letmein".toCharArray()), "changeme",
 			"mytestkey");
 
@@ -61,7 +61,7 @@ public class KeyStoreTextEncryptorLocatorTests {
 
 	@Test
 	public void testDifferentKeyAndSecret() {
-		Map<String, String> map = new HashMap<String, String>();
+		Map<String, String> map = new HashMap<>();
 		map.put("key", "mytestkey");
 		map.put("secret", "changeme");
 		TextEncryptor encryptor = this.locator.locate(map);

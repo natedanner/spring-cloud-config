@@ -74,7 +74,7 @@ public class CompositeEnvironmentRepositoryTests {
 				new String[] { sLoc5, sLoc4 });
 		SearchPathLocator.Locations loc3 = new SearchPathLocator.Locations("app", "dev", "label", "version",
 				new String[] { sLoc3, sLoc2 });
-		List<EnvironmentRepository> repos = new ArrayList<EnvironmentRepository>();
+		List<EnvironmentRepository> repos = new ArrayList<>();
 		repos.add(new TestOrderedEnvironmentRepository(3, e1, loc1));
 		repos.add(new TestOrderedEnvironmentRepository(2, e3, loc2));
 		repos.add(new TestOrderedEnvironmentRepository(1, e2, loc3));
@@ -119,9 +119,9 @@ public class CompositeEnvironmentRepositoryTests {
 				new String[] { sLoc1 });
 		SearchPathLocator.Locations loc2 = new SearchPathLocator.Locations("app", "dev", "label", "version",
 				new String[] { sLoc1, sLoc2 });
-		List<EnvironmentRepository> repos = new ArrayList<EnvironmentRepository>();
+		List<EnvironmentRepository> repos = new ArrayList<>();
 		repos.add(new TestOrderedEnvironmentRepository(3, e1, loc1));
-		List<EnvironmentRepository> repos2 = new ArrayList<EnvironmentRepository>();
+		List<EnvironmentRepository> repos2 = new ArrayList<>();
 		repos2.add(new TestOrderedEnvironmentRepository(3, e1, loc1));
 		repos2.add(new TestOrderedEnvironmentRepository(3, e2, loc2));
 		SearchPathCompositeEnvironmentRepository compositeRepo = new SearchPathCompositeEnvironmentRepository(repos,
@@ -165,7 +165,7 @@ public class CompositeEnvironmentRepositoryTests {
 				new String[] { sLoc1 });
 		SearchPathLocator.Locations loc2 = new SearchPathLocator.Locations("app", "dev", "label", "version",
 				new String[] { sLoc1, sLoc2 });
-		List<EnvironmentRepository> repos = new ArrayList<EnvironmentRepository>();
+		List<EnvironmentRepository> repos = new ArrayList<>();
 		repos.add(new TestOrderedEnvironmentRepository(2, e1, loc1));
 		repos.add(new TestFailingEnvironmentRepository(1, e2, loc2));
 
@@ -183,7 +183,7 @@ public class CompositeEnvironmentRepositoryTests {
 		Environment e1 = new Environment("app", "dev");
 		SearchPathLocator.Locations loc1 = new SearchPathLocator.Locations("app", "dev", "label", "version",
 				new String[] { sLoc1 });
-		List<EnvironmentRepository> repos = new ArrayList<EnvironmentRepository>();
+		List<EnvironmentRepository> repos = new ArrayList<>();
 		repos.add(new TestFailingLocationRepository(1, e1, loc1));
 
 		SearchPathCompositeEnvironmentRepository compositeRepo = new SearchPathCompositeEnvironmentRepository(repos,
@@ -198,7 +198,7 @@ public class CompositeEnvironmentRepositoryTests {
 		Environment e1 = new Environment("app", "dev");
 		SearchPathLocator.Locations loc1 = new SearchPathLocator.Locations("app", "dev", "label", "version",
 				new String[] { sLoc1 });
-		List<EnvironmentRepository> repos = new ArrayList<EnvironmentRepository>();
+		List<EnvironmentRepository> repos = new ArrayList<>();
 		repos.add(new TestFailingLocationRepository(1, e1, loc1));
 
 		SearchPathCompositeEnvironmentRepository compositeRepo = new SearchPathCompositeEnvironmentRepository(repos,

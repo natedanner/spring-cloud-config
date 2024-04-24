@@ -45,14 +45,14 @@ public class PassthruEnvironmentRepository implements EnvironmentRepository {
 
 	private static final String DEFAULT_LABEL = "master";
 
-	private Set<String> standardSources = new HashSet<String>(
+	private final Set<String> standardSources = new HashSet<>(
 			Arrays.asList("vcap", StandardEnvironment.SYSTEM_PROPERTIES_PROPERTY_SOURCE_NAME,
 					StandardEnvironment.SYSTEM_ENVIRONMENT_PROPERTY_SOURCE_NAME,
 					StandardServletEnvironment.JNDI_PROPERTY_SOURCE_NAME,
 					StandardServletEnvironment.SERVLET_CONFIG_PROPERTY_SOURCE_NAME,
 					StandardServletEnvironment.SERVLET_CONTEXT_PROPERTY_SOURCE_NAME));
 
-	private ConfigurableEnvironment environment;
+	private final ConfigurableEnvironment environment;
 
 	public PassthruEnvironmentRepository(ConfigurableEnvironment environment) {
 		this.environment = environment;

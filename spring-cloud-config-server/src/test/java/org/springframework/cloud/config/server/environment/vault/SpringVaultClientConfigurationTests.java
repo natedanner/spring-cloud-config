@@ -90,7 +90,7 @@ import static org.springframework.vault.authentication.AzureMsiAuthenticationOpt
 
 class SpringVaultClientConfigurationTests {
 
-	private VaultEnvironmentProperties properties = new VaultEnvironmentProperties();
+	private final VaultEnvironmentProperties properties = new VaultEnvironmentProperties();
 
 	private List<SpringVaultClientAuthenticationProvider> authProviders;
 
@@ -190,7 +190,7 @@ class SpringVaultClientConfigurationTests {
 
 	@Test
 	public void gcpIamAuthentication() {
-		final String GCE_JSON = "{" + "  \"type\": \"service_account\"," + "  \"project_id\": \"project\","
+		final String gceJson = "{" + "  \"type\": \"service_account\"," + "  \"project_id\": \"project\","
 				+ "  \"private_key_id\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"," + "  \"private_key\": \""
 				+ "-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC5qHafKgP/FAKE\\n"
 				+ "xfRl0i47zXKbGQJvGAGpcmiXRgeWkZp+kwNwBguOYNwO1qDcmewKvMPazj7EL0hV\\n"
@@ -229,7 +229,7 @@ class SpringVaultClientConfigurationTests {
 		properties.getGcpIam().setRole("server");
 		properties.getGcpIam().setProjectId("project");
 		properties.getGcpIam().setServiceAccountId("service-account");
-		properties.getGcpIam().getCredentials().setEncodedKey(base64(GCE_JSON));
+		properties.getGcpIam().getCredentials().setEncodedKey(base64(gceJson));
 
 		assertClientAuthenticationOfType(properties, GcpIamAuthentication.class);
 	}
@@ -348,10 +348,9 @@ class SpringVaultClientConfigurationTests {
 	public void springVaultClientConfigurationIsAProxy() {
 		new WebApplicationContextRunner().withPropertyValues("spring.profiles.active=vault")
 				.withConfiguration(UserConfigurations.of(ConfigServerConfiguration.class))
-				.withConfiguration(AutoConfigurations.of(ConfigServerAutoConfiguration.class)).run(context -> {
+				.withConfiguration(AutoConfigurations.of(ConfigServerAutoConfiguration.class)).run(context ->
 					assertThat(context).getBean(SpringVaultClientConfiguration.class).isNotNull()
-							.matches(svcc -> ClassUtils.isCglibProxyClassName(svcc.getClass().getName()), "is a proxy");
-				});
+							.matches(svcc -> ClassUtils.isCglibProxyClassName(svcc.getClass().getName()), "is a proxy"));
 	}
 
 }

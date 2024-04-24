@@ -146,7 +146,7 @@ public class ConfigClientProperties {
 	/**
 	 * Flag to indicate that failure to connect to the server is fatal (default false).
 	 */
-	private boolean failFast = false;
+	private boolean failFast;
 
 	/**
 	 * Security Token passed thru to underlying environment repository.

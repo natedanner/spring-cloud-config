@@ -70,9 +70,9 @@ public class ResourceController {
 
 	private UrlPathHelper helper = new UrlPathHelper();
 
-	private boolean encryptEnabled = false;
+	private boolean encryptEnabled;
 
-	private boolean plainTextEncryptEnabled = false;
+	private boolean plainTextEncryptEnabled;
 
 	public ResourceController(ResourceRepository resourceRepository, EnvironmentRepository environmentRepository,
 			Map<String, ResourceEncryptor> resourceEncryptorMap) {

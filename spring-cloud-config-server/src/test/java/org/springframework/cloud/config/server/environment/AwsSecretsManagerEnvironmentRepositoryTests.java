@@ -104,7 +104,7 @@ public class AwsSecretsManagerEnvironmentRepositoryTests {
 	private final List<String> markedForDeletion = new ArrayList<>();
 
 	private static Map<String, String> getFooProperties() {
-		return new HashMap<String, String>() {
+		return new HashMap<>() {
 			{
 				put("s3.accessKey", "foo-s3");
 				put("s3.secretKey", "ce945da2-740a-4915-a090-2978428dad05");
@@ -113,7 +113,7 @@ public class AwsSecretsManagerEnvironmentRepositoryTests {
 	}
 
 	private static Map<String, String> getFooDefaultProperties() {
-		return new HashMap<String, String>() {
+		return new HashMap<>() {
 			{
 				put("s3.accessKey", "foo-default-s3");
 				put("s3.secretKey", "8c3c58c9-daef-4d21-96b0-c2b68a7a8234");
@@ -122,7 +122,7 @@ public class AwsSecretsManagerEnvironmentRepositoryTests {
 	}
 
 	private static Map<String, String> getFooProdProperties() {
-		return new HashMap<String, String>() {
+		return new HashMap<>() {
 			{
 				put("s3.accessKey", "foo-prod-s3");
 				put("s3.secretKey", "42ca062d-8e4b-435e-9e4a-d058835817c0");
@@ -131,7 +131,7 @@ public class AwsSecretsManagerEnvironmentRepositoryTests {
 	}
 
 	private static Map<String, String> getFooEastProperties() {
-		return new HashMap<String, String>() {
+		return new HashMap<>() {
 			{
 				put("s3.accessKey", "foo-east-s3");
 				put("s3.secretKey", "657f6ac5-2e1c-487d-9d61-1df109b29edf");
@@ -140,7 +140,7 @@ public class AwsSecretsManagerEnvironmentRepositoryTests {
 	}
 
 	private static Map<String, String> getApplicationDefaultProperties() {
-		return new HashMap<String, String>() {
+		return new HashMap<>() {
 			{
 				put("s3.accessKey", "application-shared-default-s3");
 				put("s3.secretKey", "691972aa-68d2-4e55-8d9b-eedd4c63a998");
@@ -149,7 +149,7 @@ public class AwsSecretsManagerEnvironmentRepositoryTests {
 	}
 
 	private static Map<String, String> getApplicationProdProperties() {
-		return new HashMap<String, String>() {
+		return new HashMap<>() {
 			{
 				put("s3.accessKey", "application-shared-prod-s3");
 				put("s3.secretKey", "90c1dd88-5b20-41fa-a4e9-e1d638188732");
@@ -158,7 +158,7 @@ public class AwsSecretsManagerEnvironmentRepositoryTests {
 	}
 
 	private static Map<String, String> getApplicationEastProperties() {
-		return new HashMap<String, String>() {
+		return new HashMap<>() {
 			{
 				put("s3.accessKey", "application-east-s3");
 				put("s3.secretKey", "236e01a7-623b-40f4-88c1-eb4d89229dd6");
@@ -167,7 +167,7 @@ public class AwsSecretsManagerEnvironmentRepositoryTests {
 	}
 
 	private static Map<String, String> getApplicationProperties() {
-		return new HashMap<String, String>() {
+		return new HashMap<>() {
 			{
 				put("s3.accessKey", "application-shared-s3");
 				put("s3.secretKey", "25300773-eb3b-4ace-b6fc-500c87331da7");
@@ -176,7 +176,7 @@ public class AwsSecretsManagerEnvironmentRepositoryTests {
 	}
 
 	private static Map<String, String> getApplicationReleaseProperties() {
-		return new HashMap<String, String>() {
+		return new HashMap<>() {
 			{
 				put("s3.accessKey", "application-shared-s3");
 				put("s3.secretKey", "f616d232-e777-11ec-8fea-0242ac120002");
@@ -185,7 +185,7 @@ public class AwsSecretsManagerEnvironmentRepositoryTests {
 	}
 
 	private static Map<String, String> getApplicationDefaultReleaseProperties() {
-		return new HashMap<String, String>() {
+		return new HashMap<>() {
 			{
 				put("s3.accessKey", "application-shared-default-s3");
 				put("s3.secretKey", "02db4214-e778-11ec-8fea-0242ac120002");
@@ -194,7 +194,7 @@ public class AwsSecretsManagerEnvironmentRepositoryTests {
 	}
 
 	private static Map<String, String> getApplicationProdReleaseProperties() {
-		return new HashMap<String, String>() {
+		return new HashMap<>() {
 			{
 				put("s3.accessKey", "application-shared-prod-s3");
 				put("s3.secretKey", "db0d3eae-e78b-11ec-8fea-0242ac120002");
@@ -203,7 +203,7 @@ public class AwsSecretsManagerEnvironmentRepositoryTests {
 	}
 
 	private static Map<String, String> getApplicationEastReleaseProperties() {
-		return new HashMap<String, String>() {
+		return new HashMap<>() {
 			{
 				put("s3.accessKey", "application-east-s3");
 				put("s3.secretKey", "e7e99834-e78b-11ec-8fea-0242ac120002");
@@ -212,7 +212,7 @@ public class AwsSecretsManagerEnvironmentRepositoryTests {
 	}
 
 	private static Map<String, String> getFooReleaseProperties() {
-		return new HashMap<String, String>() {
+		return new HashMap<>() {
 			{
 				put("s3.accessKey", "foo-s3");
 				put("s3.secretKey", "edec8728-e78b-11ec-8fea-0242ac120002");
@@ -221,7 +221,7 @@ public class AwsSecretsManagerEnvironmentRepositoryTests {
 	}
 
 	private static Map<String, String> getFooDefaultReleaseProperties() {
-		return new HashMap<String, String>() {
+		return new HashMap<>() {
 			{
 				put("s3.accessKey", "foo-default-s3");
 				put("s3.secretKey", "f3ebef4c-e78b-11ec-8fea-0242ac120002");
@@ -230,7 +230,7 @@ public class AwsSecretsManagerEnvironmentRepositoryTests {
 	}
 
 	private static Map<String, String> getFooProdReleaseProperties() {
-		return new HashMap<String, String>() {
+		return new HashMap<>() {
 			{
 				put("s3.accessKey", "foo-prod-s3");
 				put("s3.secretKey", "004ba75a-e78c-11ec-8fea-0242ac120002");
@@ -239,7 +239,7 @@ public class AwsSecretsManagerEnvironmentRepositoryTests {
 	}
 
 	private static Map<String, String> getFooEastReleaseProperties() {
-		return new HashMap<String, String>() {
+		return new HashMap<>() {
 			{
 				put("s3.accessKey", "foo-east-s3");
 				put("s3.secretKey", "044f287c-e78c-11ec-8fea-0242ac120002");
@@ -2541,12 +2541,9 @@ public class AwsSecretsManagerEnvironmentRepositoryTests {
 		String profile = configServerProperties.getDefaultProfile();
 		String[] profiles = StringUtils.commaDelimitedListToStringArray(profile);
 
-		Map<String, String> overrides = new HashMap<String, String>(4) {
-			{
-				put("s3.accessKey", "override-s3");
-				put("s3.secretKey", "e7437a7d-dfa0-48a4-86d6-668fc0c157a7");
-			}
-		};
+		Map<String, String> overrides = new HashMap<>(4);
+		overrides.put("s3.accessKey", "override-s3");
+		overrides.put("s3.secretKey", "e7437a7d-dfa0-48a4-86d6-668fc0c157a7");
 
 		configServerProperties.setOverrides(overrides);
 		PropertySource overrideProperties = new PropertySource("overrides", overrides);

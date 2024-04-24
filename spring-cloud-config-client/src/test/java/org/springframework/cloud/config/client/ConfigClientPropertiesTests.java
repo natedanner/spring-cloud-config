@@ -34,7 +34,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class ConfigClientPropertiesTests {
 
-	private ConfigClientProperties locator = new ConfigClientProperties(new StandardEnvironment());
+	private final ConfigClientProperties locator = new ConfigClientProperties(new StandardEnvironment());
 
 	@Test
 	public void vanilla() {

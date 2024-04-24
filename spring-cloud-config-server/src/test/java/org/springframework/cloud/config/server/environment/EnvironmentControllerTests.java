@@ -80,7 +80,7 @@ class EnvironmentControllerTests {
 
 	@Test
 	public void vanillaYaml() throws Exception {
-		Map<String, Object> map = new HashMap<String, Object>();
+		Map<String, Object> map = new HashMap<>();
 		map.put("a.b.c", "d");
 		this.environment.add(new PropertySource("one", map));
 		when(this.repository.findOne("foo", "bar", null, false)).thenReturn(this.environment);
@@ -90,7 +90,7 @@ class EnvironmentControllerTests {
 
 	@Test
 	public void propertyOverrideInYaml() throws Exception {
-		Map<String, Object> map = new LinkedHashMap<String, Object>();
+		Map<String, Object> map = new LinkedHashMap<>();
 		map.put("a.b.c", "d");
 		this.environment.add(new PropertySource("one", map));
 		this.environment.addFirst(new PropertySource("two", Collections.singletonMap("a.b.c", "e")));
@@ -101,12 +101,12 @@ class EnvironmentControllerTests {
 
 	@Test
 	public void propertyOverrideInYamlMultipleValues() throws Exception {
-		Map<String, Object> map = new LinkedHashMap<String, Object>();
+		Map<String, Object> map = new LinkedHashMap<>();
 		map.put("A", "Y");
 		map.put("S", 2);
 		map.put("Y", 0);
 		this.environment.add(new PropertySource("one", map));
-		map = new LinkedHashMap<String, Object>();
+		map = new LinkedHashMap<>();
 		map.put("A", "Z");
 		map.put("S", 3);
 		this.environment.addFirst(new PropertySource("two", map));
@@ -173,7 +173,7 @@ class EnvironmentControllerTests {
 
 	@Test
 	public void arrayInYaml() throws Exception {
-		Map<String, Object> map = new LinkedHashMap<String, Object>();
+		Map<String, Object> map = new LinkedHashMap<>();
 		map.put("a.b[0]", "c");
 		map.put("a.b[1]", "d");
 		this.environment.add(new PropertySource("one", map));
@@ -184,7 +184,7 @@ class EnvironmentControllerTests {
 
 	@Test
 	public void yamlWithBrackets() throws Exception {
-		Map<String, Object> map = new LinkedHashMap<String, Object>();
+		Map<String, Object> map = new LinkedHashMap<>();
 		map.put("a.test", "e");
 		map.put("a.b[hello]", "c");
 		map.put("a.b[world]", "d");
@@ -198,14 +198,14 @@ class EnvironmentControllerTests {
 	@Test
 	public void arrayOverridenInEnvironment() throws Exception {
 		// Add original values first source
-		Map<String, Object> oneMap = new LinkedHashMap<String, Object>();
+		Map<String, Object> oneMap = new LinkedHashMap<>();
 		oneMap.put("a.b[0]", "c");
 		oneMap.put("a.b[1]", "d");
 		oneMap.put("a.b[2]", "z");
 		this.environment.add(new PropertySource("one", oneMap));
 
 		// Add overridden values in second source
-		Map<String, Object> twoMap = new LinkedHashMap<String, Object>();
+		Map<String, Object> twoMap = new LinkedHashMap<>();
 		twoMap.put("a.b[0]", "f");
 		twoMap.put("a.b[1]", "h");
 		this.environment.addFirst(new PropertySource("two", twoMap));
@@ -264,14 +264,14 @@ class EnvironmentControllerTests {
 	@Test
 	public void arrayOverridenInYaml() throws Exception {
 		// Add original values first source
-		Map<String, Object> oneMap = new LinkedHashMap<String, Object>();
+		Map<String, Object> oneMap = new LinkedHashMap<>();
 		oneMap.put("a.b[0]", "c");
 		oneMap.put("a.b[1]", "d");
 		oneMap.put("a.b[2]", "z");
 		this.environment.add(new PropertySource("one", oneMap));
 
 		// Add overridden values in second source
-		Map<String, Object> twoMap = new LinkedHashMap<String, Object>();
+		Map<String, Object> twoMap = new LinkedHashMap<>();
 		twoMap.put("a.b[0]", "f");
 		twoMap.put("a.b[1]", "h");
 		this.environment.addFirst(new PropertySource("two", twoMap));
@@ -285,7 +285,7 @@ class EnvironmentControllerTests {
 
 	@Test
 	public void textAtTopLevelInYaml() throws Exception {
-		Map<String, Object> map = new LinkedHashMap<String, Object>();
+		Map<String, Object> map = new LinkedHashMap<>();
 		map.put("document", "blah");
 		this.environment.add(new PropertySource("one", map));
 		when(this.repository.findOne("foo", "bar", null, false)).thenReturn(this.environment);
@@ -295,7 +295,7 @@ class EnvironmentControllerTests {
 
 	@Test
 	public void arrayAtTopLevelInYaml() throws Exception {
-		Map<String, Object> map = new LinkedHashMap<String, Object>();
+		Map<String, Object> map = new LinkedHashMap<>();
 		map.put("document[0]", "c");
 		map.put("document[1]", "d");
 		this.environment.add(new PropertySource("one", map));
@@ -306,7 +306,7 @@ class EnvironmentControllerTests {
 
 	@Test
 	public void arrayObObjectAtTopLevelInYaml() throws Exception {
-		Map<String, Object> map = new LinkedHashMap<String, Object>();
+		Map<String, Object> map = new LinkedHashMap<>();
 		map.put("document[0].a", "c");
 		map.put("document[1].a", "d");
 		this.environment.add(new PropertySource("one", map));
@@ -317,7 +317,7 @@ class EnvironmentControllerTests {
 
 	@Test
 	public void yamlWithProperties() throws Exception {
-		Map<String, Object> map = new LinkedHashMap<String, Object>();
+		Map<String, Object> map = new LinkedHashMap<>();
 		map.put("org.springframework", "WARN");
 		map.put("org.springframework.cloud", "ERROR");
 		this.environment.add(new PropertySource("abo", map));
@@ -329,7 +329,7 @@ class EnvironmentControllerTests {
 
 	@Test
 	public void arrayOfObjectInYaml() throws Exception {
-		Map<String, Object> map = new LinkedHashMap<String, Object>();
+		Map<String, Object> map = new LinkedHashMap<>();
 		map.put("a.b[0].c", "d");
 		map.put("a.b[0].d", "e");
 		map.put("a.b[1].c", "d");
@@ -342,7 +342,7 @@ class EnvironmentControllerTests {
 
 	@Test
 	public void nestedArraysOfObjectInYaml() throws Exception {
-		Map<String, Object> map = new LinkedHashMap<String, Object>();
+		Map<String, Object> map = new LinkedHashMap<>();
 		map.put("a.b[0].c", "x");
 		map.put("a.b[2].e[0].d", "z");
 		map.put("a.b[0].d[2]", "yy");
@@ -375,8 +375,8 @@ class EnvironmentControllerTests {
 		assertThat(item2).containsEntry("c", "y");
 		List<Object> iteme = (List<Object>) item2.get("e");
 		assertThat(iteme).hasSize(1);
-		Map<String, Object> item_e0 = (Map<String, Object>) iteme.get(0);
-		assertThat(item_e0).containsExactly(entry("d", "z"));
+		Map<String, Object> itemE0 = (Map<String, Object>) iteme.get(0);
+		assertThat(itemE0).containsExactly(entry("d", "z"));
 
 		List<Object> item3 = (List<Object>) level3.get(3);
 		assertThat(item3).containsExactly("r", "s");
@@ -384,7 +384,7 @@ class EnvironmentControllerTests {
 
 	@Test
 	public void nestedArraysOfObjectInJson() throws Exception {
-		Map<String, Object> map = new LinkedHashMap<String, Object>();
+		Map<String, Object> map = new LinkedHashMap<>();
 		map.put("a.b[0].c", "x");
 		map.put("a.b[0].d[0]", "xx");
 		map.put("a.b[0].d[1]", "yy");
@@ -399,7 +399,7 @@ class EnvironmentControllerTests {
 
 	@Test
 	public void arrayOfObjectAtTopLevelInYaml() throws Exception {
-		Map<String, Object> map = new LinkedHashMap<String, Object>();
+		Map<String, Object> map = new LinkedHashMap<>();
 		map.put("b[0].c", "d");
 		map.put("b[1].c", "d");
 		this.environment.add(new PropertySource("one", map));
@@ -410,7 +410,7 @@ class EnvironmentControllerTests {
 
 	@Test
 	public void arrayOfObjectNestedLevelInYaml() throws Exception {
-		Map<String, Object> map = new LinkedHashMap<String, Object>();
+		Map<String, Object> map = new LinkedHashMap<>();
 		map.put("x.a.b[0].c", "d");
 		map.put("x.a.b[1].c", "d");
 		this.environment.add(new PropertySource("one", map));
@@ -503,7 +503,7 @@ class EnvironmentControllerTests {
 	}
 
 	private void whenPlaceholders() {
-		Map<String, Object> map = new LinkedHashMap<String, Object>();
+		Map<String, Object> map = new LinkedHashMap<>();
 		map.put("foo", "bar");
 		this.environment.add(new PropertySource("one", map));
 		this.environment.addFirst(new PropertySource("two", Collections.singletonMap("a.b.c", "${foo}")));
