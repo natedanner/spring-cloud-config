@@ -27,7 +27,7 @@ import org.eclipse.jgit.transport.http.HttpConnectionFactory;
 public interface ConfigurableHttpConnectionFactory extends HttpConnectionFactory {
 
 	default void addConfiguration(MultipleJGitEnvironmentProperties environmentProperties) throws Exception {
-		addConfiguration(environmentProperties, Collections.EMPTY_LIST);
+		addConfiguration(environmentProperties, Collections.emptyList());
 	}
 
 	void addConfiguration(MultipleJGitEnvironmentProperties environmentProperties,

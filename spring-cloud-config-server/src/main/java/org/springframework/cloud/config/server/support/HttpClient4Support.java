@@ -51,7 +51,7 @@ public final class HttpClient4Support {
 
 	public static HttpClientBuilder builder(HttpEnvironmentRepositoryProperties environmentProperties)
 			throws GeneralSecurityException {
-		return builder(environmentProperties, Collections.EMPTY_LIST);
+		return builder(environmentProperties, Collections.emptyList());
 	}
 
 	public static HttpClientBuilder builder(HttpEnvironmentRepositoryProperties environmentProperties,

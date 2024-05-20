@@ -66,7 +66,7 @@ public class MultipleJGitEnvironmentRepositoryFactory
 			TransportConfigCallbackFactory transportConfigCallbackFactory,
 			GitCredentialsProviderFactory gitCredentialsProviderFactory) {
 		this(environment, server, connectionFactory, transportConfigCallbackFactory, gitCredentialsProviderFactory,
-				Collections.EMPTY_LIST);
+				Collections.emptyList());
 	}
 
 	public MultipleJGitEnvironmentRepositoryFactory(ConfigurableEnvironment environment, ConfigServerProperties server,
